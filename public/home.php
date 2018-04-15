@@ -28,7 +28,7 @@ include("../includes/templates/header.php");
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title> QuizWiz</title>
     <!-- plugins:css -->
-    <link rel="stylesheet" href="node_modules/mdi/css/materialdesignicons.min.css">
+<!--    <link rel="stylesheet" href="node_modules/mdi/css/materialdesignicons.min.css">-->
 
     <!-- inject:css -->
     <link rel="stylesheet" href="css/style.css">
@@ -53,10 +53,10 @@ include("../includes/templates/header.php");
 <!--            <div class="mdc-layout-grid">-->
 <!--                <div class="mdc-layout-grid__inner">-->
 <!--                    <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12" style="height: 150%;">-->
-                        <div class="mdc-card" style="height: 150%;background-color:#7306d1; padding: 2% 2% 2% 2% !important; ">
+                        <div class="mdc-card" style="height: 150%; color: #7306d1 !important; font-weight: bold; padding: 2% 2% 2% 2% !important; ">
                             <div class="mdc-layout-grid__inner" >
                                 <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3">
-                                    <section class="purchase__card_section" style="padding: 0px !important;">
+                                    <section class="purchase__card_section" >
                                         <img src="images/faces/face1.jpg">
                                     </section>
                                 </div>
