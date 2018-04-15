@@ -24,7 +24,7 @@
 
     <!--    <!-- partial -->-->
     <!-- partial:partials/_navbar.html -->
-    <header class="mdc-toolbar mdc-elevation--z4 mdc-toolbar--fixed" style="background-color: #563d7c;" >
+    <header class="mdc-toolbar mdc-elevation--z4 mdc-toolbar--fixed" style="background-color: #7306d1;" >
         <div class="mdc-toolbar__row">
             <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
                 <div class="logo">

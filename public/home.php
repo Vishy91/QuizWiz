@@ -6,6 +6,8 @@
  * Time: 6:23 PM
  */
 include("../includes/templates/header.php");
+
+//include("../includes/templates/footer.php");
 //require_once("../includes/data/dbconfig.php");
 
 ?>
@@ -51,7 +53,7 @@ include("../includes/templates/header.php");
 <!--            <div class="mdc-layout-grid">-->
 <!--                <div class="mdc-layout-grid__inner">-->
 <!--                    <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12" style="height: 150%;">-->
-                        <div class="mdc-card" style="height: 150%;background-color:#563d7c; padding: 2% 2% 2% 2% !important; ">
+                        <div class="mdc-card" style="height: 150%;background-color:#7306d1; padding: 2% 2% 2% 2% !important; ">
                             <div class="mdc-layout-grid__inner" >
                                 <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3">
                                     <section class="purchase__card_section" style="padding: 0px !important;">
@@ -83,13 +85,13 @@ include("../includes/templates/header.php");
                     <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link" role="tab" id="cat-tab" data-toggle="tab" href="#categories" aria-controls="cat" aria-selected="false"
-                            style="">Categories</a>
+                            style="color: #7306d1 !important; font-weight: bold;" >Categories</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" role="tab" id="play-tab" data-toggle="tab" href="#played"  aria-controls="play" aria-selected="false">Played</a>
+                            <a class="nav-link" style="color: #7306d1 !important; font-weight: bold;" role="tab" id="play-tab" data-toggle="tab" href="#played"  aria-controls="play" aria-selected="false">Played</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" role="tab" id="stat-tab" data-toggle="tab" href="#details"  aria-controls="stat" aria-selected="false"> detailedStatistics</a>
+                            <a class="nav-link" style="color: #7306d1 !important; font-weight: bold;" role="tab" id="stat-tab" data-toggle="tab" href="#details"  aria-controls="stat" aria-selected="false"> detailedStatistics</a>
                         </li>
                     </ul>
                 </div>
@@ -174,7 +176,7 @@ include("../includes/templates/header.php");
                             <ul class="nav nav-tabs card-header-tabs" id="myTab1" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link" role="tab" id="reccat-tab" data-toggle="tab" href="#reccategories" aria-controls="cat" aria-selected="false"
-                                       style="">Rec Categories</a>
+                                       style="color: #7306d1 !important; font-weight: bold;">Rec Categories</a>
                                 </li>
                             </ul>
                 </div>
@@ -233,16 +235,7 @@ include("../includes/templates/header.php");
 
         </main>
         <!-- partial:partials/_footer.html -->
-        <footer>
-            <div class="mdc-layout-grid">
-                <div class="mdc-layout-grid__inner">
-                    <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6">
-                        <span class="text-muted">Copyright © 2018 <a class="text-green" href="https://www.bootstrapdash.com/" target="_blank">Bootstrap Dash</a>. All rights reserved.</span>
-                    </div>
 
-                </div>
-            </div>
-        </footer>
         <!-- partial -->
     </div>
 </div>
