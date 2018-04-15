@@ -1,10 +1,50 @@
+<?php require_once("../includes/session.php");
+require_once("../includes/data/dbconfig.php");
+require_once("../includes/functions.php"); 
+require_once("../includes/validation_functions.php"); 
+
+$email = "";
+
+if (isset($_POST['login'])) {
+  // Process the form
+  
+  // validations
+  $required_fields = array("email", "password");
+  validate_presences($required_fields);
+  
+  if (empty($errors)) {
+    // Attempt Login
+
+		$email = $_POST["email"];
+		$password = $_POST["password"];
+		
+		$found_user = attempt_login($email, $password);
+
+    if ($found_user) {
+      // Success
+			// Mark user as logged in
+			$_SESSION["user_id"] = $found_admin["user_id"];
+			$_SESSION["user_email"] = $found_admin["email"];
+      redirect_to("home.php");
+    } else {
+      // Failure
+      $_SESSION["message"] = "Email/Password not match.";
+    }
+  }
+} else {
+  // This is probably a GET request
+  
+} // end: if (isset($_POST['submit']))
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<title>QuizWiz</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
+<!--===============================================================================================-->	<link href="css/public.css" media="all" rel="stylesheet" type="text/css" />
 	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -32,20 +72,22 @@
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
-				<form class="login100-form validate-form">
+				<?php echo message(); ?>
+				<?php echo form_errors($errors); ?>
+				<form class="login100-form validate-form" action="index.php" method="POST">
 					<span class="login100-form-title p-b-49">
 						Login
 					</span>
 
-					<div class="wrap-input100 validate-input m-b-23" data-validate = "Username is reauired">
-						<span class="label-input100">Username</span>
-						<input class="input100" type="text" name="username" placeholder="Type your username">
+					<div class="wrap-input100 validate-input m-b-23" data-validate = "Username is required">
+						<span class="label-input100">Email</span>
+						<input class="input100" type="text" name="email" placeholder="Type your email">
 						<span class="focus-input100" data-symbol="&#xf206;"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Password is required">
 						<span class="label-input100">Password</span>
-						<input class="input100" type="password" name="pass" placeholder="Type your password">
+						<input class="input100" type="password" name="password" placeholder="Type your password">
 						<span class="focus-input100" data-symbol="&#xf190;"></span>
 					</div>
 					
@@ -58,7 +100,7 @@
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-							<button class="login100-form-btn">
+							<button class="login100-form-btn" name="login">
 								Login
 							</button>
 						</div>

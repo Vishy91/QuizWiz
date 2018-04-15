@@ -1,8 +1,8 @@
 INSERT INTO USERS
-  (user_firstname, user_lastname) 
+  (user_firstname, user_lastname, user_email, user_password) 
 VALUES
-  ('Shweta', 'BHARTIA'),
-  ('Vaishnavi', 'Mukundhan');
+  ('Shweta', 'Bhartia', 'shweta.bhartia93@gmail.com','shwetabh'),
+  ('Vaishnavi', 'Mukundhan', 'vaishnavim@gmail.com','vaishnavimu');
 
 INSERT INTO CATEGORIES 
     (category_name)

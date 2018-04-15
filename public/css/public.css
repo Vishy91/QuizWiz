@@ -1,0 +1,6 @@
+/* errors */
+.error {
+  color: #990000; border: 2px solid #990000;
+  margin: 1em 0; padding: 1em;
+}
+.error ul { padding-left: 2em; }

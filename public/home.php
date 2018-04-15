@@ -6,6 +6,6 @@
  * Time: 6:23 PM
  */
 include("../includes/templates/header.php");
-require_once("../includes/data/db_config.php");
+require_once("../includes/data/dbconfig.php");
 ?>
 
