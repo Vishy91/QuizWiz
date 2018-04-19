@@ -6,7 +6,7 @@ CREATE TABLE USERS(
 	user_firstname VARCHAR(25) NOT NULL,
 	user_lastname VARCHAR(25) NOT NULL,
 	user_email VARCHAR(50) NOT NULL,
-	user_password VARCHAR(20) NOT NULL
+	user_password VARCHAR(60) NOT NULL
 );
 
 DROP TABLE IF EXISTS CATEGORIES;

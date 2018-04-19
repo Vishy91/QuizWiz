@@ -118,7 +118,7 @@ VALUES
   ('Japan', 5, 0),
   ('India', 5, 1),
   ('China', 5, 0),
-  ('United States', 5, 0);
+  ('United States', 5, 0),
   ('Xerox', 6, 1),
   ('Rentokil Initial', 6, 0),
   ('Grupo BC', 6, 0),
@@ -158,7 +158,7 @@ VALUES
   ('1967', 19, 0),
   ('ARPAnet', 20, 1),
   ('Internet', 20, 0),
-  ('Byte', 21, 0);
+  ('Byte', 21, 0),
   ('Bit', 21, 1),
   ('Yahoo', 22, 1),
   ('Bing', 22, 0),

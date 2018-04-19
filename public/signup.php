@@ -7,33 +7,34 @@ if (isset($_POST['signup'])) {
   // Process the form
   
   // validations
-  $required_fields = array("firstname", "lastname", "email");
+  $required_fields = array("firstname", "lastname", "email", "password");
   validate_presences($required_fields);
   
   //password validation
-    
+  
   if (empty($errors)) {
     // Perform Create
 
     $firstname = mysql_prep($_POST["firstname"]);
     $lastname = mysql_prep($_POST["lastname"]);
     $email = mysql_prep($_POST["email"]);
-    $password = mysql_prep($_POST["password"]);
+    $password = password_encrypt($_POST["password"]);
     
     $query  = "INSERT INTO USERS (";
     $query .= "  user_firstname, user_lastname, user_email, user_password";
     $query .= ") VALUES (";
     $query .= "  '{$firstname}', '{$lastname}', '{$email}', '{$password}'";
     $query .= ")";
-    $result = mysqli_query($connection, $query);
 
+    $result = mysqli_query($connection, $query);
+    
     if ($result) {
       // Success
       $_SESSION["message"] = "User created.";
       redirect_to("home.php");
     } else {
       // Failure
-      $_SESSION["message"] = "User creation failed.";
+      $_SESSION["message"] = "User Creation Failed";
     }
   }
 } else {
@@ -78,6 +79,8 @@ if (isset($_POST['signup'])) {
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+				<?php echo message(); ?>
+				<?php echo form_errors($errors); ?>
 				<form class="login100-form validate-form" action="signup.php" method="POST">
 					<span class="login100-form-title p-b-49">
 						Sign Up
@@ -103,7 +106,7 @@ if (isset($_POST['signup'])) {
 
 					<div class="wrap-input100 validate-input" data-validate="Password is required">
 						<span class="label-input100">Password</span>
-						<input class="input100" type="password" name="pass" placeholder="Type your password">
+						<input class="input100" type="password" name="password" placeholder="Type your password">
 						<span class="focus-input100" data-symbol="&#xf190;"></span>
 					</div>
 					<br><br>
