@@ -298,7 +298,7 @@
                             <label class="element-animation4 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="4">4 Four</label>
                         </div>
                     </div>
-                    <div class="modal-footer text-muted">
+                    <div class="modal-footer text-muted" style="text-align: center;" >
                         <span id="answer"></span>
                     </div>
                 </div>
