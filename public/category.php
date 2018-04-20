@@ -12,8 +12,6 @@ require_once("../includes/functions.php");
 require_once("../includes/validation_functions.php");
 
 include("../includes/templates/header.php");
-global $connection;
-$topics = fetch_topics_for_category($_GET["categoryid"]);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -81,7 +79,8 @@ $topics = fetch_topics_for_category($_GET["categoryid"]);
                                 <div class="tab-pane active show" id="categories"  role="tabpanel" aria-labelledby="cat-tab">
                                     <div class="container-fluid">
                                         <div class="row" style="padding: 2% 2% 2% 2%">
-                                            <?php while ($rows = mysqli_fetch_array($topics) )
+                                            <?php $topics = fetch_topics_for_category($_GET["categoryid"]);
+                                            while ($rows = mysqli_fetch_array($topics) )
                                             {?>
                                             <div class="col-sm-3 col-md-3">
                                                 <!-- Card -->

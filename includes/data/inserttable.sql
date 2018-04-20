@@ -20,9 +20,9 @@ INSERT INTO SUBSCRIPTIONS
     (subscription_user_id, subscription_category_id)
 VALUES
   (1,1),
-  (1,2),
-  (1,3),
-  (1,4);
+  (1,4),
+  (1,5),
+  (1,7);
 
 INSERT INTO TOPICS 
     (topic_name, topic_category_id)
@@ -99,7 +99,7 @@ VALUES
   ('"The Black Swan" deals with which branch of the Arts?', 10);
 
 INSERT INTO QUESTIONOPTIONS
-  (questionoption_text, questionoption_question_id, questionoption_is_correct_choices)
+  (questionoption_text, questionoption_question_id, questionoption_is_right)
 VALUES
   ('Japan', 1, 1),
   ('India', 1, 0),
@@ -202,10 +202,10 @@ VALUES
   ('Anne Cox Chambers', 35, 0);
 
 INSERT INTO USERQUIZANSWER
-  (userquizanswer_question_id, userquizanswer_question_option_id, userquizanswer_answer_time)
+  (userquizanswer_user_id, userquizanswer_quiz_id, userquizanswer_won, userquizanswer_answer_time)
 VALUES
-  (1, 1, ''),
-  (2, 2, '');
+  (1, 1, 1, ''),
+  (2, 2, 1, '');
 
 INSERT INTO USERQUIZ
   (userquiz_user_id, userquiz_quiz_id)

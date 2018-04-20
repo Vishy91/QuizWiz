@@ -9,13 +9,7 @@ require_once("../includes/session.php");
 require_once("../includes/data/dbconfig.php");
 require_once("../includes/functions.php"); 
 require_once("../includes/validation_functions.php");
-
 include("../includes/templates/header.php");
-global $connection;
-//$user_id=1;
-$user_categories = fetch_categories_for_user($_SESSION["user_id"]);
-
-//$user_categories = fetch_categories_for_user($user_id);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -89,7 +83,7 @@ $user_categories = fetch_categories_for_user($_SESSION["user_id"]);
                             <a class="nav-link" style="color: #7306d1 !important; font-weight: bold;" role="tab" id="play-tab" data-toggle="tab" href="#played"  aria-controls="play" aria-selected="false">Played</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" style="color: #7306d1 !important; font-weight: bold;" role="tab" id="stat-tab" data-toggle="tab" href="#details"  aria-controls="stat" aria-selected="false"> detailedStatistics</a>
+                            <a class="nav-link" style="color: #7306d1 !important; font-weight: bold;" role="tab" id="stat-tab" data-toggle="tab" href="#details"  aria-controls="stat" aria-selected="false">detailedStatistics</a>
                         </li>
                     </ul>
                 </div>
@@ -98,7 +92,8 @@ $user_categories = fetch_categories_for_user($_SESSION["user_id"]);
                         <div class="tab-pane fade show active" id="categories"  role="tabpanel" aria-labelledby="cat-tab">
                             <div class="container-fluid">
                                 <div class="row" style="padding: 2% 2% 2% 2%">
-                                    <?php while ($rows = mysqli_fetch_array($user_categories) ) {?>
+                                    <?php $user_categories = fetch_categories_for_user($_SESSION["user_id"]);
+                                    while ($rows = mysqli_fetch_array($user_categories) ) {?>
                                     <div class="col-sm-3 col-md-3">
                                         <!-- Card -->
                                         <article class="card card-inverse animated fadeInLeft">

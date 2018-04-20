@@ -54,18 +54,19 @@ CREATE TABLE QUESTIONOPTIONS(
 	questionoption_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
 	questionoption_text VARCHAR(500) NOT NULL,
 	questionoption_question_id INT,
-	questionoption_is_correct_choices TINYINT(1),
+	questionoption_is_right TINYINT(1),
 	FOREIGN KEY (questionoption_question_id) REFERENCES QUESTIONS (question_id)
 );
 
 DROP TABLE IF EXISTS USERQUIZANSWERS;
 CREATE TABLE USERQUIZANSWERS(
 	userquizanswer_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-	userquizanswer_question_id INT,
-	userquizanswer_question_option_id INT,
-	userquizanswer_is_right TINYINT(1),
+	userquizanswer_user_id INT,
+	userquizanswer_quiz_id INT,
+	userquizanswer_won TINYINT(1),
 	userquizanswer_answer_time TIME,
-	FOREIGN KEY (userquizanswer_question_id) REFERENCES QUESTIONS (question_id)
+	FOREIGN KEY (userquizanswer_user_id) REFERENCES USERS (user_id)
+	FOREIGN KEY (userquizanswer_quiz_id) REFERENCES QUIZZES (quiz_id)
 );
 
 --Quiz played by a user

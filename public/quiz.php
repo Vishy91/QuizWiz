@@ -3,7 +3,6 @@
 require_once("../includes/data/dbconfig.php");
 require_once("../includes/functions.php");
 
-global $connection;
 $quizid = 1;
 
 ?>
@@ -260,10 +259,11 @@ $quizid = 1;
 <body bgcolor="#e3e3e3">
 
 <div class="container"  align="center" >
+    <form class="form-horizontal" role="form" style="margin-top: 5%;" method="POST" action="result.php">
     <div class="panel panel-default" style="margin-top: 10%;width: 120%; ">
         <div class="panel-heading">Taking Question</div>
 
-        <form class="form-horizontal" role="form" style="margin-top: 5%;">
+        <!-- <form class="form-horizontal" role="form" style="margin-top: 5%;"> -->
 
             <div class="form-group">
                 <div class="col-sm-6" align="right">Time Left:
@@ -271,10 +271,10 @@ $quizid = 1;
                 <div class="col-sm-6" id='countdown' align="left">60
                 </div>
             </div>
-        </form>
+        <!-- </form> -->
         <?php if($quizid) {
         $quiz_question = fetch_question_for_quiz($quizid);
-        for($i=1 ; $i <= mysqli_num_rows($quiz_question) ; $i++){
+        for($i=1; $i <= mysqli_num_rows($quiz_question) ; $i++){
         while ($rows = mysqli_fetch_array($quiz_question) ) {
 
         ?>
@@ -282,7 +282,7 @@ $quizid = 1;
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <span class="label label-warning" id="qid"><?php i ?></span> <?php echo $rows['question_text']  ?>
+                        <span class="label label-warning" id="qid"></span> <?php echo $rows['question_text']  ?>
                     </div>
                     <?php
 			        $quiz_options = fetch_questionoptions_for_question($rows['question_id']);
@@ -294,7 +294,7 @@ $quizid = 1;
                 <?php while ($rows = mysqli_fetch_array($quiz_options)) { ?>
 
                     <label class="element-animation1 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span>
-                        <input type="radio" name="quizcheck[<?php echo $rows['questionoption_question_id']; ?>]""
+                        <input type="radio" name="quizcheck[<?php echo $rows['questionoption_question_id']; ?>]"
                                value="<?php echo $rows['questionoption_id']; ?>"><?php echo $rows['questionoption_text']; ?>
                     </label>
 
@@ -320,20 +320,14 @@ $quizid = 1;
         </div>
         <div class="panel-body">
             <div class="col-sm-offset-2 col-sm-8" align="center">
-                <button type="submit" class="btn btn-primary" style="color: #fff;
-    background-color: #7306d1;
-    border-color: #7306d1;">Complete Quiz</button>
+                <button type="submit" name="submit" class="btn btn-primary" style="color: #fff; background-color: #7306d1; border-color: #7306d1;">Complete Quiz</button>
             </div>
         </div>
+    </form>
     </div>
 </div>
 
 
-
-
-
 <script type="text/javascript" src="js/bootstrap.js"></script>
-
-
 </body>
 </html>

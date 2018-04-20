@@ -106,6 +106,48 @@
 		}
 	}
 
+	function fetch_correct_questionoptionid_for_question($question_id)	{
+		global $connection;
+		$safe_question_id = mysqli_real_escape_string($connection, $question_id);
+		
+		$query = "Select questionoption_id from QUESTIONOPTIONS where questionoption_question_id = {$safe_question_id} AND questionoption_is_right = 1 ";
+		$result = mysqli_query($connection, $query);
+			
+		if ($result && mysqli_num_rows($result) >= 0) {
+			return $result;
+		} else {
+			return false;
+		}
+	}
+
+	function get_category_name($category_id)	{
+		global $connection;
+		$safe_category_id = mysqli_real_escape_string($connection, $category_id);
+		
+		$query = "Select category_name from CATEGORIES where category_id = {$safe_category_id} ";
+		$result = mysqli_query($connection, $query);
+			
+		if ($result && mysqli_num_rows($result) >= 0) {
+			return $result;
+		} else {
+			return false;
+		}
+	}
+
+	function get_quiz_played_by_user($user_id)	{
+		global $connection;
+		$safe_user_id = mysqli_real_escape_string($connection, $user_id);
+		
+		$query = "Select COUNT(userquizanswer_quiz_id) as quiz_played from USERQUIZANSWERS where userquizanswer_user_id = {$safe_user_id} AND userquizanswer_won = 1";
+		$result = mysqli_query($connection, $query);
+			
+		if ($result && mysqli_num_rows($result) >= 0) {
+			return $result;
+		} else {
+			return false;
+		}
+	}
+
 	function password_encrypt($password) {
 		$hash_format = "$2y$10$";	// Tells PHP to use Blowfish with a "cost" of 10
 		$salt_length = 22;			// Blowfish salts should be 22-characters or more
