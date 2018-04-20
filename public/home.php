@@ -29,14 +29,9 @@ include("../includes/templates/header.php");
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title> QuizWiz</title>
-    <!-- plugins:css -->
-<!--    <link rel="stylesheet" href="node_modules/mdi/css/materialdesignicons.min.css">-->
 
-    <!-- inject:css -->
     <link rel="stylesheet" href="css/style.css">
-    <!-- endinject -->
-<!--    <link rel="shortcut icon" href="images/favicon.png" />-->
-<!--    Includes for the cards-->
+
     <link rel="stylesheet" type="text/html" href="css/normalize.css">
     <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.min.css'>
     <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css'>
