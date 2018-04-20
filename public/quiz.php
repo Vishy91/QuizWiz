@@ -1,10 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: vaishnavim
- * Date: 4/15/18
- * Time: 5:22 PM
- */
+//$link = <a href=\"quiz.php?quizid=" urlencode($movie["Bib_IU_Barcode"]) "\">";
+require_once("../includes/data/dbconfig.php");
+require_once("../includes/functions.php");
+
+global $connection;
+$quizid = 1;
+
 ?>
 
 <!doctype html>
@@ -271,68 +272,50 @@
                 </div>
             </div>
         </form>
+        <?php if($quizid) {
+        $quiz_question = fetch_question_for_quiz($quizid);
+        for($i=1 ; $i <= mysqli_num_rows($quiz_question) ; $i++){
+        while ($rows = mysqli_fetch_array($quiz_question) ) {
+
+        ?>
         <div class="container-fluid">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <span class="label label-warning" id="qid">2</span> THREE is CORRECT
+                        <span class="label label-warning" id="qid"><?php i ?></span> <?php echo $rows['question_text']  ?>
                     </div>
-                    <div class="modal-body">
-                        <div class="col-xs-3 col-xs-offset-5">
-                            <div id="loadbar" style="display: none;">
-                                <div class="blockG" ></div>
-                                <div class="blockG" ></div>
-                                <div class="blockG" ></div>
-                                <div class="blockG"></div>
-                                <div class="blockG" id="rotateG_05"></div>
-                                <div class="blockG" id="rotateG_06"></div>
-                                <div class="blockG" id="rotateG_07"></div>
-                                <div class="blockG" id="rotateG_08"></div>
-                            </div>
-                        </div>
+                    <?php
+			        $quiz_options = fetch_questionoptions_for_question($rows['question_id']);
 
-                        <div class="quiz" id="quiz" data-toggle="buttons">
-                            <label class="element-animation1 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="1">1 One</label>
-                            <label class="element-animation2 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="2">2 Two</label>
-                            <label class="element-animation3 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="3">3 Three</label>
-                            <label class="element-animation4 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="4">4 Four</label>
-                        </div>
+                    ?>
+                    <div class="modal-body">
+
+                <div class="quiz" id="quiz" data-toggle="buttons">
+                <?php while ($rows = mysqli_fetch_array($quiz_options)) { ?>
+
+                    <label class="element-animation1 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span>
+                        <input type="radio" name="quizcheck[<?php echo $rows['questionoption_question_id']; ?>]""
+                               value="<?php echo $rows['questionoption_id']; ?>"><?php echo $rows['questionoption_text']; ?>
+                    </label>
+
+                    <?php
+                }?>
+                </div>
                     </div>
-                    <div class="modal-footer text-muted" style="text-align: center;" >
+                    <div class="modal-footer text-muted" style="text-align: center;">
                         <span id="answer"></span>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="panel panel-primary" style="margin-top: 30px;width: 600px; height:200px; ">
-            <div class="panel-heading" style="color: #fff;
-    background-color: #7306d1;
-    border-color: #7306d1;">Question 1</div>
-            <p align="left" style="margin-left:10px; margin-right:10px;">This is the first question of our quiz from the selected category and this question is retrieved from the database on random selection.</p>
-            <div class="col-sm-6" style="padding-left:10px;">
-                <div class="radio">
-                    <label><input type="radio" name="optradio">Option 1</label>
-                </div>
-            </div>
-            <div class="col-sm-6" style="padding-left:10px;">
-                <div class="radio">
-                    <label><input type="radio" name="optradio">Option 2</label>
-                </div>
-            </div>
-            <div class="col-sm-6" style="padding-left:10px;" >
-                <div class="radio">
-                    <label><input type="radio" name="optradio">Option 3</label>
-                </div>
-            </div>
-            <div class="col-sm-6" style="padding-left:10px;">
-                <div class="radio">
-                    <label><input type="radio" name="optradio">Option 4</label>
-                </div>
-            </div>
+                    </div>
+                    </div>
+                    </div>
+                    <?php
 
+            }
+        }
 
+        }
+        ?>
 
-        </div>
 
         </div>
         <div class="panel-body">

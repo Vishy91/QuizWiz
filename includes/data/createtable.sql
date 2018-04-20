@@ -66,7 +66,7 @@ CREATE TABLE USERQUIZANSWERS(
 	userquizanswer_is_right TINYINT(1),
 	userquizanswer_answer_time TIME,
 	FOREIGN KEY (userquizanswer_question_id) REFERENCES QUESTIONS (question_id)
-)
+);
 
 --Quiz played by a user
 DROP TABLE IF EXISTS USERQUIZ;
@@ -74,7 +74,7 @@ CREATE TABLE USERQUIZ(
 	userquiz_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
 	userquiz_user_id INT,
 	userquiz_quiz_id INT,
-	FOREIGN KEY (userquiz_user_id) REFERENCES USERS (user_id)
+	FOREIGN KEY (userquiz_user_id) REFERENCES USERS (user_id),
 	FOREIGN KEY (userquiz_quiz_id) REFERENCES QUIZZES (quiz_id)
 );
 
