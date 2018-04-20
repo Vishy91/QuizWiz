@@ -12,6 +12,8 @@ require_once("../includes/functions.php");
 require_once("../includes/validation_functions.php");
 
 include("../includes/templates/header.php");
+global $connection;
+$topics = fetch_topics_for_category($_GET["categoryid"]);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,10 +46,7 @@ include("../includes/templates/header.php");
 <div class="body-wrapper" style="color: black !important;">
     <div class="page-wrapper mdc-toolbar-fixed-adjust" style="padding-top: 2%; padding-right: 2%">
         <main class="content-wrapper" style="padding: 15px 15px 15px 15px !important;">
-            <!--            <div class="mdc-layout-grid">-->
-            <!--                <div class="mdc-layout-grid__inner">-->
-            <!--                    <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12" style="height: 150%;">-->
-            <div class="mdc-card" style="height: 150%; color: #7306d1 !important; font-weight: bold; padding: 2% 2% 2% 2% !important; ">
+           <div class="mdc-card" style="height: 150%; color: #7306d1 !important; font-weight: bold; padding: 2% 2% 2% 2% !important; ">
                 <div class="mdc-layout-grid__inner" >
                     <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3">
                         <section class="purchase__card_section" >
@@ -82,60 +81,18 @@ include("../includes/templates/header.php");
                                 <div class="tab-pane active show" id="categories"  role="tabpanel" aria-labelledby="cat-tab">
                                     <div class="container-fluid">
                                         <div class="row" style="padding: 2% 2% 2% 2%">
+                                            <?php while ($rows = mysqli_fetch_array($topics) )
+                                            {?>
                                             <div class="col-sm-3 col-md-3">
                                                 <!-- Card -->
                                                 <article class="card card-inverse animated fadeInLeft">
                                                     <img class="img-responsive" src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/1U2EGZ07GU.jpg" alt="Deer in nature" />
                                                     <div class="card-img-overlay">
-                                                        <p class="card-text">Computer Science</p>
+                                                        <?php echo '<a href="topic.php?topicid=' .$rows["topic_id"].'">'.$rows["topic_name"].'</a>'; ?>
                                                     </div>
                                                 </article><!-- .end Card -->
                                             </div>
-                                            <div class="col-sm-3 col-md-3">
-                                                <!-- Card -->
-                                                <article class="card card-inverse animated fadeInDown">
-                                                    <img class="img-responsive" src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/SYC0YBA37V.jpg" alt="Leaf on the street" />
-                                                    <div class="card-img-overlay">
-                                                        <p class="card-text">Big Bang Theory</p>
-                                                    </div>
-                                                </article><!-- .end Card -->
-                                            </div>
-                                            <div class="col-sm-3 col-md-3">
-                                                <!-- Card -->
-                                                <article class="card card-inverse animated fadeInRight">
-                                                    <img class="img-responsive" src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/8SALDQRRZX.jpg" alt="White sand" />
-                                                    <div class="card-img-overlay">
-                                                        <p class="card-text">Bloomington</p>
-                                                    </div>
-                                                </article><!-- .end Card -->
-                                            </div>
-                                            <div class="col-sm-3 col-md-3">
-                                                <!-- Card -->
-                                                <article class="card card-inverse animated fadeInRight">
-                                                    <img class="img-responsive" src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/8SALDQRRZX.jpg" alt="White sand" />
-                                                    <div class="card-img-overlay">
-                                                        <p class="card-text">Disney</p>
-                                                    </div>
-                                                </article><!-- .end Card -->
-                                            </div>
-                                            <div class="col-sm-3 col-md-3">
-                                                <!-- Card -->
-                                                <article class="card card-inverse animated fadeInRight">
-                                                    <img class="img-responsive" src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/8SALDQRRZX.jpg" alt="White sand" />
-                                                    <div class="card-img-overlay">
-                                                        <p class="card-text">Logos</p>
-                                                    </div>
-                                                </article><!-- .end Card -->
-                                            </div>
-                                            <div class="col-sm-3 col-md-3">
-                                                <!-- Card -->
-                                                <article class="card card-inverse animated fadeInRight">
-                                                    <img class="img-responsive" src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/8SALDQRRZX.jpg" alt="White sand" />
-                                                    <div class="card-img-overlay">
-                                                        <p class="card-text">Spell Bee</p>
-                                                    </div>
-                                                </article><!-- .end Card -->
-                                            </div>
+                                            <?php } ?>
                                         </div><!-- .end Second row -->
                                     </div>
                                 </div>
