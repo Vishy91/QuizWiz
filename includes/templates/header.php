@@ -3,7 +3,6 @@
 
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -15,6 +14,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title> QuizWiz</title>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .nav>li>a:focus, .nav>li>a:hover {
+            text-decoration: none;
+            background-color: inherit !important;
+        }
+        /*.nav .open>a, .nav .open>a:focus, .nav .open>a:hover{*/
+            /*background-color: #7306d1;*/
+            /*border-color: #7306d1 ;*/
+        /*}*/
+        .dropdown-toggle::after {
+            display: none !important;
+            width: 0px;
+            height: 0px;
+            margin-left: 0.25rem;
+            vertical-align: middle;
+            content: none !important;
+            border: none !important;
+            /*border-right: 0.3em solid transparent;*/
+            /*border-left: 0.3em solid transparent;*/
+        }
+
+
+    </style>
 </head>
 
 <body>
@@ -67,21 +89,16 @@
                     </a>
                 </div>
                 <div class="mdc-menu-anchor mr-1">
-                    <a href="#" class="mdc-toolbar__icon toggle mdc-ripple-surface" data-toggle="dropdown" toggle-dropdown="logout-menu" data-mdc-auto-init="MDCRipple">
-                        <i class="material-icons">more_vert</i>
-                    </a>
-                    <div class="mdc-simple-menu mdc-simple-menu--right" tabindex="-1" id="logout-menu">
-                        <ul class="mdc-simple-menu__items mdc-list" role="menu" aria-hidden="true">
-                            <li class="mdc-list-item" role="menuitem" tabindex="0">
-                                <i class="material-icons mdc-theme--primary mr-1">settings</i>
-                                Settings
-                            </li>
-                            <li class="mdc-list-item" role="menuitem" tabindex="0">
-                                <i class="material-icons mdc-theme--primary mr-1">power_settings_new</i>
-                                Logout
-                            </li>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" onmouseover="this.style.color= 'pink';"data-toggle="dropdown"><i class="material-icons">more_vert</i></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href=""><i class="material-icons mdc-theme--primary mr-1">settings</i></a></li>
+                            <li><a href=""><i class="material-icons mdc-theme--primary mr-1">power_settings_new</i></a></li>
+
                         </ul>
-                    </div>
+                    </li>
+                </ul>
                 </div>
             </section>
         </div>
