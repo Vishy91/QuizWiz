@@ -1,20 +1,13 @@
 <?php 
+require_once("../includes/session.php");
 require_once("../includes/data/dbconfig.php");
-require_once("../includes/functions.php");
+require_once("../includes/functions.php"); 
+require_once("../includes/validation_functions.php");
 
 global $connection;
-$email = 'shweta.bhartia93@gmail.com';
-$safe_email = mysqli_real_escape_string($connection, $email);
-
-$query  = "SELECT * ";
-$query .= "FROM USERS ";
-$query .= "WHERE user_email = '{$safe_email}' ";
-$query .= "LIMIT 1";
-$user_set = mysqli_query($connection, $query);
-confirm_query($user_set);
-if($user = mysqli_fetch_assoc($user_set)) {
-	print_r($user);
-} else {
-	return null;
+$user_categories = fetch_categories_for_user($_SESSION["user_id"]);
+while ($rows = mysqli_fetch_array($user_categories) ) {
+	echo $rows['category_name']; ?> <br>
+	<?php
 }
 ?>

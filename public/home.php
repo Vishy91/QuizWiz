@@ -5,10 +5,12 @@
  * Date: 4/11/18
  * Time: 6:23 PM
  */
-include("../includes/templates/header.php");
+require_once("../includes/session.php");
+require_once("../includes/data/dbconfig.php");
+require_once("../includes/functions.php"); 
+require_once("../includes/validation_functions.php");
 
-//include("../includes/templates/footer.php");
-//require_once("../includes/data/dbconfig.php");
+include("../includes/templates/header.php");
 
 ?>
 <!DOCTYPE html>
@@ -44,10 +46,7 @@ include("../includes/templates/header.php");
 </head>
 
 <body>
-<div class="body-wrapper">
-
-<!--    <!-- partial -->-->
-
+<div class="body-wrapper" style="color: black !important;">
     <div class="page-wrapper mdc-toolbar-fixed-adjust" style="padding-top: 2%; padding-right: 2%">
         <main class="content-wrapper" style="padding: 15px 15px 15px 15px !important;">
 <!--            <div class="mdc-layout-grid">-->
@@ -62,7 +61,7 @@ include("../includes/templates/header.php");
                                 </div>
                                 <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3">
                                     <section class="purchase__card_section">
-                                        <p>Welcome, User.</p>
+                                        <p>Welcome, <?php echo $_SESSION["user_firstname"]; ?></p>
                                     </section>
                                 </div>
                                 <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-5">

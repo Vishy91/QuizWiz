@@ -19,8 +19,10 @@ VALUES
 INSERT INTO SUBSCRIPTIONS 
     (subscription_user_id, subscription_category_id)
 VALUES
-  (,),
-  (,);
+  (1,1),
+  (1,2),
+  (1,3),
+  (1,4);
 
 INSERT INTO TOPICS 
     (topic_name, topic_category_id)

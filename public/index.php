@@ -19,12 +19,13 @@ if (isset($_POST['login'])) {
 		$password = $_POST["password"];
 		
 		$found_user = attempt_login($email, $password);
+		print_r($found_user);
 
     if ($found_user) {
       // Success
 			// Mark user as logged in
-			$_SESSION["user_id"] = $found_admin["user_id"];
-			$_SESSION["user_email"] = $found_admin["email"];
+			$_SESSION["user_id"] = $found_user["user_id"];
+			$_SESSION["user_firstname"] = $found_user["user_firstname"];
       redirect_to("home.php");
     } else {
       // Failure
