@@ -94,7 +94,7 @@ include("../includes/templates/header.php");
                                         <article class="card card-inverse animated fadeInLeft">
                                             <img class="img-responsive" src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/1U2EGZ07GU.jpg" alt="Deer in nature" />
                                             <div class="card-img-overlay">
-                                                <p class="card-text"><?php echo '<a href="category.php?categoryid=' .$rows["category_id"].'">'.$rows["category_name"].'</a>'; ?>
+                                                <p class="card-text"><?php echo '<a href="category.php?categoryid=' .$rows["category_id"].'&catrgoryname='.$rows["category_name"].'">'.$rows["category_name"].'</a>'; ?>
                                                 </p>
                                             </div>
                                         </article><!-- .end Card -->
