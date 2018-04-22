@@ -85,9 +85,7 @@ include("../includes/templates/header.php");
                         <li class="nav-item">
                             <a class="nav-link" style="color: #7306d1 !important; font-weight: bold;" role="tab" id="play-tab" data-toggle="tab" href="#played"  aria-controls="play" aria-selected="false">Played</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" style="color: #7306d1 !important; font-weight: bold;" role="tab" id="stat-tab" data-toggle="tab" href="#details"  aria-controls="stat" aria-selected="false">detailedStatistics</a>
-                        </li>
+
                     </ul>
                 </div>
                             <div class="card-body">
@@ -114,10 +112,25 @@ include("../includes/templates/header.php");
                             </div>
                         </div>
                         <div class="tab-pane fade" id="played" role="tabpanel" aria-labelledby="play-tab">
-                            Played
-                        </div>
-                        <div class="tab-pane fade" id="details" role="tabpanel" aria-labelledby="stat-tab">
-                            stats
+                            <div class="container-fluid">
+                                <div class="row" style="padding: 2% 2% 2% 2%">
+                                    <?php $quiz_played = get_quiz_played_by_user($_SESSION["user_id"]);
+                                    while ($rows = mysqli_fetch_array($quiz_played) ) { ?>
+                                        <div class="col-sm-3 col-md-3">
+                                            <!-- Card -->
+                                            <article class="card card-inverse animated fadeInLeft">
+                                                <img class="img-responsive" src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/1U2EGZ07GU.jpg" alt="Deer in nature" />
+                                                <div class="card-img-overlay">
+                                                    <p class="card-text">
+                                                        <?php echo '<a style=" color: white !important; text-decoration: none !important;" >'.$rows["quiz_won"].'</a>'; ?>
+                                                    </p>
+                                                </div>
+                                            </article><!-- .end Card -->
+                                        </div>
+                                    <?php } ?>
+
+                                </div><!-- .end Second row -->
+                            </div>
                         </div>
 
                     </div>
