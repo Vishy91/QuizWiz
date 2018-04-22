@@ -20,7 +20,8 @@ CREATE TABLE USERS(
 DROP TABLE IF EXISTS CATEGORIES;
 CREATE TABLE CATEGORIES(
 	category_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-	category_name VARCHAR(100) NOT NULL
+	category_name VARCHAR(100) NOT NULL,
+	category_tag VARCHAR(100) NOT NULL
 );
 
 --users and categories table mapping
@@ -73,7 +74,7 @@ CREATE TABLE USERQUIZANSWERS(
 	userquizanswer_quiz_id INT,
 	userquizanswer_won TINYINT(1),
 	userquizanswer_answer_time TIME,
-	FOREIGN KEY (userquizanswer_user_id) REFERENCES USERS (user_id)
+	FOREIGN KEY (userquizanswer_user_id) REFERENCES USERS (user_id),
 	FOREIGN KEY (userquizanswer_quiz_id) REFERENCES QUIZZES (quiz_id)
 );
 

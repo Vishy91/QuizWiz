@@ -1,4 +1,4 @@
-  --shweta, vaishnavi paswords
+--shweta, vaishnavi passwords
 INSERT INTO ADMINS
     (username, hashed_password)
 VALUES
@@ -12,16 +12,16 @@ VALUES
   ('Vaishnavi', 'Mukundhan', 'vaishnavim@gmail.com','vaishnavimu');
 
 INSERT INTO CATEGORIES 
-    (category_name)
+    (category_name, category_tag)
 VALUES
-  ('Business'),
-  ('Games'),
-  ('Geography'),
-  ('Lifestyle'),
-  ('Movies'),
-  ('TV'),
-  ('Music'),
-  ('Science');
+  ('Business','Business'),
+  ('Games','Fun'),
+  ('Geography','Science'),
+  ('Lifestyle','General'),
+  ('Movies','Entertainment'),
+  ('TV','Entertainment'),
+  ('Music','Entertainment'),
+  ('Computer Science','Science');
 
 INSERT INTO SUBSCRIPTIONS 
     (subscription_user_id, subscription_category_id)
@@ -208,11 +208,15 @@ VALUES
   ('Oprah Winfrey', 35, 1),
   ('Anne Cox Chambers', 35, 0);
 
-INSERT INTO USERQUIZANSWER
+INSERT INTO USERQUIZANSWERS
   (userquizanswer_user_id, userquizanswer_quiz_id, userquizanswer_won, userquizanswer_answer_time)
 VALUES
-  (1, 1, 1, ''),
-  (2, 2, 1, '');
+  (1, 1, 1, '00:00:00'),
+  (1, 2, 1, '00:00:00'),
+  (1, 3, 1, '00:00:00'),
+  (1, 4, 1, '00:00:00'),
+  (1, 5, 0, '00:00:00'),
+  (1, 6, 0, '00:00:00');
 
 INSERT INTO USERQUIZ
   (userquiz_user_id, userquiz_quiz_id)

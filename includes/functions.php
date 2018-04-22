@@ -169,7 +169,56 @@
 		global $connection;
 		$safe_user_id = mysqli_real_escape_string($connection, $user_id);
 		
-		$query = "Select COUNT(userquizanswer_quiz_id) as quiz_played from USERQUIZANSWERS where userquizanswer_user_id = {$safe_user_id} AND userquizanswer_won = 1";
+		$query = "Select q.quiz_title FROM QUIZZES q JOIN USERQUIZANSWERS u ON q.quiz_id = u.userquizanswer_quiz_id WHERE userquizanswer_user_id = {$safe_user_id} ";
+		$result = mysqli_query($connection, $query);
+			
+		if ($result && mysqli_num_rows($result) >= 0) {
+			return $result;
+		} else {
+			return false;
+		}
+	}
+
+	function get_quiz_won_by_user($user_id)	{
+		global $connection;
+		$safe_user_id = mysqli_real_escape_string($connection, $user_id);
+		
+		$query = "Select COUNT(userquizanswer_quiz_id) as quiz_won from USERQUIZANSWERS where userquizanswer_user_id = {$safe_user_id} AND userquizanswer_won = 1 ";
+		$result = mysqli_query($connection, $query);
+			
+		if ($result && mysqli_num_rows($result) >= 0) {
+			return $result;
+		} else {
+			return false;
+		}
+	}
+
+	function search_categories($category_name) {
+		global $connection;
+		$category_name = explode(' ', $category_name);
+
+		$query = 'SELECT * FROM CATEGORIES WHERE ';
+
+		$parts = array();
+		foreach( $category_name as $category_name_word ){
+		$parts[] = '`category_name` LIKE "%'.$category_name_word.'%"';
+		}
+
+		$query .= implode(' OR ', $parts);
+		$result = mysqli_query($connection, $query);
+			
+		if ($result && mysqli_num_rows($result) >= 0) {
+			return $result;
+		} else {
+			return false;
+		}
+	}
+
+	function get_recommended_for_user($user_id)	{
+		global $connection;
+		$safe_user_id = mysqli_real_escape_string($connection, $user_id);
+		
+		$query = "SELECT * FROM CATEGORIES where category_tag IN (SELECT c.category_tag FROM CATEGORIES c WHERE c.category_id IN (SELECT s.subscription_category_id FROM SUBSCRIPTIONS s WHERE subscription_user_id = {$safe_user_id} ) ) ";
 		$result = mysqli_query($connection, $query);
 			
 		if ($result && mysqli_num_rows($result) >= 0) {
