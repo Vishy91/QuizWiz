@@ -65,7 +65,7 @@ include("../includes/templates/header.php");
                                         Games Won: <?php while ($rows = mysqli_fetch_array($quiz_won) ) { echo $rows['quiz_won']; }?>
                                         <br>
                                         Lost: <?php while ($rows = mysqli_fetch_array($quizlost_count) ) {
-                                            echo $rows['countq'];
+                                            echo $rows['quiz_lost'];
                                         }?>
                                     </section>
                                 </div>
