@@ -1,4 +1,4 @@
---shweta, vaishnavi paswords
+  --shweta, vaishnavi paswords
 INSERT INTO ADMINS
     (username, hashed_password)
 VALUES
