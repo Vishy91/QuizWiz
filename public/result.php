@@ -4,6 +4,8 @@ require_once("../includes/data/dbconfig.php");
 require_once("../includes/functions.php");
 require_once("../includes/validation_functions.php");
 confirm_logged_in();
+
+include("../includes/templates/header.php");
 ?>
 
 <!DOCTYPE html>

@@ -19,7 +19,7 @@ if (isset($_POST['login'])) {
 		$password = $_POST["password"];
 		
 		$found_user = attempt_login($email, $password);
-		print_r($found_user);
+//		print_r($found_user);
 
     if ($found_user) {
       // Success

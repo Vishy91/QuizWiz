@@ -72,9 +72,9 @@ confirm_logged_in();
                 // $('#quiz').fadeOut();
                 setTimeout(function(){
                     $( "#answer" ).html(  $(this).checking(choice) );
-                //     // $('#quiz').show();
-                //     // $('#loadbar').fadeOut();
-                //     /* something else */
+                    //     // $('#quiz').show();
+                    //     // $('#loadbar').fadeOut();
+                    //     /* something else */
                 }, 100);
             });
 
@@ -259,10 +259,10 @@ confirm_logged_in();
 
 <div class="container"  align="center" >
     <form class="form-horizontal" role="form" style="margin-top: 5%;" method="POST" action="result.php">
-    <div class="panel panel-default" style="margin-top: 10%;width: 120%; ">
-        <div class="panel-heading">Taking Question</div>
+        <div class="panel panel-default" style="margin-top: 10%;width: 120%; ">
+            <div class="panel-heading">Taking Question</div>
 
-        <!-- <form class="form-horizontal" role="form" style="margin-top: 5%;"> -->
+            <!-- <form class="form-horizontal" role="form" style="margin-top: 5%;"> -->
 
             <div class="form-group">
                 <div class="col-sm-6" align="right">Time Left:
@@ -270,61 +270,34 @@ confirm_logged_in();
                 <div class="col-sm-6" id='countdown' align="left">60
                 </div>
             </div>
-        <!-- </form> -->
-        <?php if(isset($_GET["quizid"])) {
-        $quiz_question = fetch_question_for_quiz($_GET["quizid"]);
-        for($i=1; $i <= mysqli_num_rows($quiz_question) ; $i++){
-        while ($rows = mysqli_fetch_array($quiz_question) ) {
+            <!-- </form> -->
+            <?php if(isset($_GET["quizid"])) {
+                $quiz_question = fetch_question_for_quiz($_GET["quizid"]);
+                for ($i = 1; $i <= mysqli_num_rows($quiz_question); $i++) {
+                    while ($rows = mysqli_fetch_array($quiz_question)) {
+                        echo $rows['question_text'];?>
+                        <br><br>
+<?php                        $quiz_options = fetch_questionoptions_for_question($rows['question_id']);
+                        $quiz_options = fetch_questionoptions_for_question($rows['question_id']);
+                        while ($rows = mysqli_fetch_array($quiz_options)) { ?>
+                            <input type="radio" checked="checked" name="quizcheck[<?php echo $rows['questionoption_question_id']; ?>]"
+                                               value="<?php echo $rows['questionoption_id']; ?>">
 
-        ?>
-        <div class="container-fluid">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <span class="label label-warning" id="qid"></span> <?php echo $rows['question_text']  ?>
-                    </div>
-                    <?php
-			        $quiz_options = fetch_questionoptions_for_question($rows['question_id']);
-
-                    ?>
-                    <form>
-                    <div class="modal-body">
-
-                <div class="quiz" id="quiz" data-toggle="buttons">
-                <?php while ($rows = mysqli_fetch_array($quiz_options)) { ?>
-
-                    <label class="element-animation1 btn btn-lg btn-primary btn-block">
-                        <input type="radio" checked="checked" name="quizcheck[<?php echo $rows['questionoption_question_id']; ?>]"
-                               value="<?php echo $rows['questionoption_id']; ?>">
-                        <?php echo $rows['questionoption_text']; ?>
-
-                    </label>
-                    </form>
-                    <?php
-                }?>
-                </div>
-                    </div>
-                    </div>
-                    </div>
-    </form>
-    </form>
-                    <?php
-
+                                        <?php echo $rows['questionoption_text'];
+                                        ?>
+            <br>
+            <br><?php
+                        }
+                    }
+                }
             }
-        }
-
-        }
-        ?>
-
-
-        </div>
-        <div class="panel-body">
-            <div class="col-sm-offset-2 col-sm-8" align="center">
-                <button type="submit" name="submit" class="btn btn-primary" style="color: #fff; background-color: #7306d1; border-color: #7306d1;">Complete Quiz</button>
-            </div>
-        </div>
-    </form>
+            ?>
+<div class="panel-body">
+    <div class="col-sm-offset-2 col-sm-8" align="center">
+        <button type="submit" name="submit" class="btn btn-primary" style="color: #fff; background-color: #7306d1; border-color: #7306d1;">Complete Quiz</button>
     </div>
+</div>
+</form>
 </div>
 
 

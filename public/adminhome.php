@@ -77,15 +77,15 @@ include("../includes/templates/header.php");
 
                 <h1 style="color:black ;font-weight: 500; align-content: center">CREATE: </h1>
                 <div class="row">
-                    <div class="col-sm-3 col-md-3 col-lg-3" >
+                    <div class="col-sm-4 col-md-3 col-lg-3" >
 
                         <?php echo '<a  class="button"  href="createcategories.php?adminid=' .$_SESSION["username"].'">Categories</a>'; ?>
                     </div>
-                    <div class="col-sm-3 col-md-3 col-lg-3" >
+                    <div class="col-sm-4 col-md-3 col-lg-3" >
                         <?php echo '<a  class="button"  href=" .php?adminid=' .$_SESSION["username"].'">Topics</a>'; ?>
 
                     </div>
-                    <div class="col-sm-3 col-md-3 col-lg-3" >
+                    <div class="col-sm-4 col-md-3 col-lg-3" >
 
                         <?php echo '<a  class="button"  href="createquiz.php?adminid=' .$_SESSION["username"].'">Quiz</a>'; ?>
 

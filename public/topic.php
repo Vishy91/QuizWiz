@@ -84,7 +84,7 @@ include("../includes/templates/header.php");
                                                 <article class="card card-inverse animated fadeInLeft">
                                                     <img class="img-responsive" src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/1U2EGZ07GU.jpg" alt="Deer in nature" />
                                                     <div class="card-img-overlay">
-                                                        <?php echo '<a href="quiz.php?quizid=' .$rows["quiz_id"].'">'.$rows["quiz_title"].'</a>'; ?>
+                                                        <?php echo '<a href="quiz1.php?quizid=' .$rows["quiz_id"].'">'.$rows["quiz_title"].'</a>'; ?>
                                                     </div>
                                                 </article><!-- .end Card -->
                                             </div>
