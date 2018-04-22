@@ -1,5 +1,4 @@
 <?php
-//$link = <a href=\"quiz.php?quizid=" urlencode($movie["Bib_IU_Barcode"]) "\">";
 require_once("../includes/session.php");
 require_once("../includes/data/dbconfig.php");
 require_once("../includes/functions.php");
@@ -11,7 +10,7 @@ confirm_logged_in();
 <html>
 <head>
     <meta charset="utf-8">
-    <title>BLOCKS - Bootstrap Dashboard Theme</title>
+    <title>QUIZWIZ</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Carlos Alvarez - Alvarez.is">
