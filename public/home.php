@@ -54,10 +54,18 @@ include("../includes/templates/header.php");
                                 </div>
                                 <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-5">
                                     <section class="purchase__card_section d-flex align-item-center">
-                                        Game Statistics:<br>
-                                        Games Won: 7
+                                        <?php $quiz_won = get_quiz_won_by_user($_SESSION["user_id"]);
+                                        $quizplayed_count= count_quiz_played_by_user($_SESSION["user_id"]);
+
+
+                                        ?>
+                                        Game Statistics:<?php while ($rows = mysqli_fetch_array($quizplayed_count) ) {
+                                                echo $rows['countq'];
+                                            }?>
+                                            <br>
+                                        Games Won: <?php while ($rows = mysqli_fetch_array($quiz_won) ) { echo $rows['quiz_won']; }?>
+                                        <br>
                                         Lost: 5
-                                        Draw : 15
                                     </section>
                                 </div>
                             </div>
@@ -94,7 +102,8 @@ include("../includes/templates/header.php");
                                         <article class="card card-inverse animated fadeInLeft">
                                             <img class="img-responsive" src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/1U2EGZ07GU.jpg" alt="Deer in nature" />
                                             <div class="card-img-overlay">
-                                                <p class="card-text"><?php echo '<a href="category.php?categoryid=' .$rows["category_id"].'&catrgoryname='.$rows["category_name"].'">'.$rows["category_name"].'</a>'; ?>
+                                                <p class="card-text">
+                                                    <?php echo '<a style="    color: white !important; text-decoration: none !important;" href="category.php?categoryid=' .$rows["category_id"].'&catrgoryname='.$rows["category_name"].'">'.$rows["category_name"].'</a>'; ?>
                                                 </p>
                                             </div>
                                         </article><!-- .end Card -->
@@ -132,43 +141,25 @@ include("../includes/templates/header.php");
                                 <div class="tab-pane fade show" id="reccategories" style="padding-top: 2%" role="tabpanel" aria-labelledby="reccat-tab">
                                     <div class="container-fluid">
                                     <div class="row" style="padding: 2% 2% 2% 2%">
-                                        <div class="col-sm-3 col-md-6">
-                                            <!-- Card -->
-                                            <article class="card card-inverse animated fadeInRight">
-                                                <img class="img-responsive" src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/8SALDQRRZX.jpg" alt="White sand" />
-                                                <div class="card-img-overlay">
-                                                    <p class="card-text">Story </p>
-                                                </div>
-                                            </article><!-- .end Card -->
-                                        </div>
-                                        <div class="col-sm-3 col-md-6">
-                                            <!-- Card -->
-                                            <article class="card card-inverse animated fadeInRight">
-                                                <img class="img-responsive" src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/8SALDQRRZX.jpg" alt="White sand" />
-                                                <div class="card-img-overlay">
-                                                    <p class="card-text">Four </p>
-                                                </div>
-                                            </article><!-- .end Card -->
-                                        </div>
-                                        <div class="col-sm-3 col-md-6">
-                                                <!-- Card -->
-                                                <article class="card card-inverse animated fadeInLeft">
-                                                    <img class="img-responsive" src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/1U2EGZ07GU.jpg" alt="Deer in nature" />
-                                                    <div class="card-img-overlay">
-                                                        <p class="card-text"> play</p>
-                                                    </div>
-                                                </article><!-- .end Card -->
-                                            </div>
-                                            <div class="col-sm-3 col-md-6">
-                                                <!-- Card -->
-                                                <article class="card card-inverse animated fadeInDown">
-                                                    <img class="img-responsive" src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/SYC0YBA37V.jpg" alt="Leaf on the street" />
-                                                    <div class="card-img-overlay">
-                                                        <p class="card-text"> She die...</p>
-                                                    </div>
-                                                </article><!-- .end Card -->
-                                            </div>
+                                        <?php
+                                        $recommended_categories = get_recommended_for_user($_SESSION["user_id"]);
+                                        while ($rows = mysqli_fetch_array($recommended_categories) ) { ?>
 
+                                        <div class="col-sm-3 col-md-6">
+                                            <!-- Card -->
+                                            <article class="card card-inverse animated fadeInRight">
+                                                <img class="img-responsive" src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/8SALDQRRZX.jpg" alt="White sand" />
+                                                <div class="card-img-overlay">
+                                                    <p class="card-text">
+                                                        <?php echo '<a style="    color: white !important; text-decoration: none !important;" href="category.php?categoryid=' .$rows["category_id"].'&catrgoryname='.$rows["category_name"].'">'.$rows["category_name"].'</a>'; ?>
+
+                                                    </p>
+                                                </div>
+                                            </article><!-- .end Card -->
+                                        </div>
+                                            <?php
+                                        }
+                                        ?>
 
                                      </div>
                                      </div>

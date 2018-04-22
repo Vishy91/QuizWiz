@@ -178,6 +178,19 @@
 			return false;
 		}
 	}
+function count_quiz_played_by_user($user_id)	{
+    global $connection;
+    $safe_user_id = mysqli_real_escape_string($connection, $user_id);
+
+    $query = "Select COUNT(q.quiz_title) as countq FROM QUIZZES q JOIN USERQUIZANSWERS u ON q.quiz_id = u.userquizanswer_quiz_id WHERE userquizanswer_user_id = {$safe_user_id} ";
+    $result = mysqli_query($connection, $query);
+
+    if ($result && mysqli_num_rows($result) >= 0) {
+        return $result;
+    } else {
+        return false;
+    }
+}
 
 	function get_quiz_won_by_user($user_id)	{
 		global $connection;
@@ -218,7 +231,10 @@
 		global $connection;
 		$safe_user_id = mysqli_real_escape_string($connection, $user_id);
 		
-		$query = "SELECT * FROM CATEGORIES where category_tag IN (SELECT c.category_tag FROM CATEGORIES c WHERE c.category_id IN (SELECT s.subscription_category_id FROM SUBSCRIPTIONS s WHERE subscription_user_id = {$safe_user_id} ) ) ";
+		$query = "SELECT * FROM CATEGORIES where
+        category_tag IN (SELECT c.category_tag FROM CATEGORIES c WHERE c.category_id IN 
+        (SELECT s.subscription_category_id FROM SUBSCRIPTIONS s WHERE subscription_user_id = {$safe_user_id} ) ) 
+        and category_id not IN (SELECT subscription_category_id from SUBSCRIPTIONS WHERE subscription_user_id = {$safe_user_id}) ";
 		$result = mysqli_query($connection, $query);
 			
 		if ($result && mysqli_num_rows($result) >= 0) {
