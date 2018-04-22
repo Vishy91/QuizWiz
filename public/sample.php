@@ -30,7 +30,7 @@ while ($rows = mysqli_fetch_array($recommended_categories) ) {
 $quizplayed_count= get_quiz_lost_by_user(1);
 while ($rows = mysqli_fetch_array($quizplayed_count) ) {
     echo $rows['quiz_lost'];
-}
 
+}
 
 ?>

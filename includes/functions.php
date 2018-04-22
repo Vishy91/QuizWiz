@@ -70,11 +70,24 @@
 		}
 	}
 
+
 	function fetch_categories_for_user($user_id)	{
 		global $connection;
 		$safe_user_id = mysqli_real_escape_string($connection, $user_id);
 		
 		$query = "Select c.* from CATEGORIES c JOIN SUBSCRIPTIONS s on c.category_id = s.subscription_category_id where subscription_user_id = {$safe_user_id} ";
+		$result = mysqli_query($connection, $query);
+		if ($result && mysqli_num_rows($result) >= 0) {
+			return $result;
+		} else {
+			return false;
+		}
+	}
+	function fetch_allcategories()	{
+		global $connection;
+//		$safe_user_id = mysqli_real_escape_string($connection);
+
+		$query = "Select * from CATEGORIES";
 		$result = mysqli_query($connection, $query);
 		if ($result && mysqli_num_rows($result) >= 0) {
 			return $result;
