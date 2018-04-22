@@ -50,14 +50,13 @@ include("../includes/templates/header.php");
             <?php
             	foreach ($_POST['quizcheck'] as $key => $value) {
             		$questionoption_id = fetch_correct_questionoptionid_for_question($key);
-					$rows = mysqli_fetch_array($questionoption_id);
-					if ($rows['questionoption_id'] == $value){
-						$correct_ans++;
-					}
+                echo $questionoption_id;
+                while ($rows = mysqli_fetch_array($questionoption_id)) {
+      					if ($rows['questionoption_id'] == $value){
+      						$correct_ans++;
+      					} }
             	}
             ?>
-            	
-    		
 		<tr>
 			<td>
 				Your Total score

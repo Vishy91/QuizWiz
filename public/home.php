@@ -122,7 +122,7 @@ include("../includes/templates/header.php");
                                                 <img class="img-responsive" src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/1U2EGZ07GU.jpg" alt="Deer in nature" />
                                                 <div class="card-img-overlay">
                                                     <p class="card-text">
-                                                        <?php echo '<a style=" color: white !important; text-decoration: none !important;" >'.$rows["quiz_won"].'</a>'; ?>
+                                                        <?php echo '<a style=" color: white !important; text-decoration: none !important;" >'.$rows["quiz_title"].'</a>'; ?>
                                                     </p>
                                                 </div>
                                             </article><!-- .end Card -->
