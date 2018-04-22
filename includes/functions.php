@@ -96,6 +96,19 @@
 		}
 	}
 
+	function fetch_quizzes_for_topic($topic_id)	{
+		global $connection;
+		$safe_topic_id = mysqli_real_escape_string($connection, $topic_id);
+		
+		$query = "Select q.* from QUIZZES q where quiz_topic_id = {$safe_topic_id} ";
+		$result = mysqli_query($connection, $query);
+		if ($result && mysqli_num_rows($result) >= 0) {
+			return $result;
+		} else {
+			return false;
+		}
+	}
+
 	function fetch_question_for_quiz($quiz_id)	{
 		global $connection;
 		$safe_quiz_id = mysqli_real_escape_string($connection, $quiz_id);

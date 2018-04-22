@@ -5,9 +5,6 @@ require_once("../includes/data/dbconfig.php");
 require_once("../includes/functions.php");
 require_once("../includes/validation_functions.php");
 confirm_logged_in();
-
-$quizid = 1;
-
 ?>
 
 <!doctype html>
@@ -275,8 +272,8 @@ $quizid = 1;
                 </div>
             </div>
         <!-- </form> -->
-        <?php if($quizid) {
-        $quiz_question = fetch_question_for_quiz($quizid);
+        <?php if(isset($_GET["quizid"])) {
+        $quiz_question = fetch_question_for_quiz($_GET["quizid"]);
         for($i=1; $i <= mysqli_num_rows($quiz_question) ; $i++){
         while ($rows = mysqli_fetch_array($quiz_question) ) {
 
