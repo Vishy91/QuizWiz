@@ -12,7 +12,7 @@
     <meta charset="utf-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title> QuizWiz</title>
+    <title>QuizWiz</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
         .nav>li>a:focus, .nav>li>a:hover {
@@ -44,7 +44,7 @@
     color: white;
     font-weight: 500;">
 
-    <!--    <!-- partial -->-->
+    <!--    partial -->
     <!-- partial:partials/_navbar.html -->
     <header class="mdc-toolbar mdc-elevation--z4 mdc-toolbar--fixed" style="background-color: #7306d1;" >
         <div class="mdc-toolbar__row">
@@ -73,7 +73,7 @@
                         <a href="#" class="dropdown-toggle" onmouseover="this.style.color= 'pink';"data-toggle="dropdown"><i class="material-icons">more_vert</i></i></a>
                         <ul class="dropdown-menu">
                             <li><a href=""><i class="material-icons mdc-theme--primary mr-1">settings</i></a></li>
-                            <li><a href=""><i class="material-icons mdc-theme--primary mr-1">power_settings_new</i></a></li>
+                            <li><a href="logout.php"><i class="material-icons mdc-theme--primary mr-1">power_settings_new</i></a></li>
 
                         </ul>
                     </li>

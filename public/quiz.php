@@ -1,7 +1,10 @@
 <?php
 //$link = <a href=\"quiz.php?quizid=" urlencode($movie["Bib_IU_Barcode"]) "\">";
+require_once("../includes/session.php");
 require_once("../includes/data/dbconfig.php");
 require_once("../includes/functions.php");
+require_once("../includes/validation_functions.php");
+confirm_logged_in();
 
 $quizid = 1;
 

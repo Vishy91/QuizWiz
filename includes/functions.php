@@ -52,6 +52,24 @@
 		}
 	}
 
+	function find_admin_by_username($username) {
+		global $connection;
+		
+		$safe_username = mysqli_real_escape_string($connection, $username);
+		
+		$query  = "SELECT * ";
+		$query .= "FROM ADMINS ";
+		$query .= "WHERE username = '{$safe_username}' ";
+		$query .= "LIMIT 1";
+		$admin_set = mysqli_query($connection, $query);
+		confirm_query($admin_set);
+		if($admin = mysqli_fetch_assoc($admin_set)) {
+			return $admin;
+		} else {
+			return null;
+		}
+	}
+
 	function fetch_categories_for_user($user_id)	{
 		global $connection;
 		$safe_user_id = mysqli_real_escape_string($connection, $user_id);
@@ -208,6 +226,33 @@
 	function confirm_logged_in() {
 		if (!logged_in()) {
 			redirect_to("login.php");
+		}
+	}
+
+	function attempt_admin_login($username, $password) {
+		$admin = find_admin_by_username($username);
+		if ($admin) {
+			// found user, now check password
+			if (password_check($password, $admin["hashed_password"])) {
+			// password matches
+			return $admin;
+			} else {
+			// password does not match
+			return false;
+			}
+		} else {
+			// user not found
+			return false;
+		}
+	}
+
+	function logged_admin_in() {
+		return isset($_SESSION['admin_id']);
+	}
+	
+	function confirm_admin_logged_in() {
+		if (!logged_admin_in()) {
+			redirect_to("adminlogin.php");
 		}
 	}
 

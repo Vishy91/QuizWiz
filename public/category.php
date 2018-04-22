@@ -1,18 +1,12 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: vaishnavim
- * Date: 4/15/18
- * Time: 5:20 PM
- */
-
 require_once("../includes/session.php");
 require_once("../includes/data/dbconfig.php");
 require_once("../includes/functions.php");
 require_once("../includes/validation_functions.php");
-
+confirm_logged_in();
 include("../includes/templates/header.php");
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 

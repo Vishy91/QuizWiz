@@ -1,18 +1,12 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: vaishnavim
- * Date: 4/15/18
- * Time: 5:20 PM
- */
-
 require_once("../includes/session.php");
 require_once("../includes/data/dbconfig.php");
 require_once("../includes/functions.php");
 require_once("../includes/validation_functions.php");
-
+confirm_logged_in();
 include("../includes/templates/header.php");
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,7 +40,7 @@ include("../includes/templates/header.php");
         <main class="content-wrapper" style="padding: 15px 15px 15px 15px !important;">
             <!--            <div class="mdc-layout-grid">-->
             <!--                <div class="mdc-layout-grid__inner">-->
-            <!--                    <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12" style="height: 150%;">-->
+            <!--                    <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cellspan-12" style="height: 150%;"-->
             <div class="mdc-card" style="height: 150%; color: #7306d1 !important; font-weight: bold; padding: 2% 2% 2% 2% !important; ">
                 <div class="mdc-layout-grid__inner" >
                     <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3">
@@ -72,7 +66,7 @@ include("../includes/templates/header.php");
                             <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link" role="tab" id="cat-tab" data-toggle="tab" href="#categories" aria-controls="cat" aria-selected="true"
-                                       aria-expanded="true" style="color: #7306d1 !important; font-weight: bold;" >Categories</a>
+                                       aria-expanded="true" style="color: #7306d1 !important; font-weight: bold;">Quizzes</a>
                                 </li>
 
                             </ul>

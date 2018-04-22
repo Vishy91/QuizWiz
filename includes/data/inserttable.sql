@@ -1,3 +1,10 @@
+--shweta, vaishnavi paswords
+INSERT INTO ADMINS
+    (username, hashed_password)
+VALUES
+    ('sbhartia','$2y$10$OTk2OTllMmFjYmI0MzIyMOK7Sf0OLXslCYHFlVoC5Bg1V4Y5u45sO'),
+    ('vaishnavim','$2y$10$M2VmNDg0MTkwNzY2NTFlZO0CNYvNBZPcoEsb37uFzdzvXDgjY7Oa6');
+
 INSERT INTO USERS
   (user_firstname, user_lastname, user_email, user_password) 
 VALUES

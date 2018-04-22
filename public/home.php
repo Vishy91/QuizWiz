@@ -1,14 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: vaishnavim
- * Date: 4/11/18
- * Time: 6:23 PM
- */
 require_once("../includes/session.php");
 require_once("../includes/data/dbconfig.php");
 require_once("../includes/functions.php"); 
 require_once("../includes/validation_functions.php");
+confirm_logged_in();
 include("../includes/templates/header.php");
 ?>
 <!DOCTYPE html>
@@ -44,7 +39,7 @@ include("../includes/templates/header.php");
         <main class="content-wrapper" style="padding: 15px 15px 15px 15px !important;">
 <!--            <div class="mdc-layout-grid">-->
 <!--                <div class="mdc-layout-grid__inner">-->
-<!--                    <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12" style="height: 150%;">-->
+<!--                    <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cellspan-12" style="height: 150%;"-->
                         <div class="mdc-card" style="height: 150%; color: #7306d1 !important; font-weight: bold; padding: 2% 2% 2% 2% !important; ">
                             <div class="mdc-layout-grid__inner" >
                                 <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3">
