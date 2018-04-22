@@ -329,7 +329,7 @@ function get_quiz_lost_by_user($user_id)	{
 	
 	function confirm_logged_in() {
 		if (!logged_in()) {
-			redirect_to("login.php");
+			redirect_to("index.php");
 		}
 	}
 

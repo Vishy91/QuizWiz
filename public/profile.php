@@ -1,8 +1,11 @@
 <?php require_once("../includes/session.php"); ?>
 <?php require_once("../includes/data/dbconfig.php"); ?>
 <?php require_once("../includes/functions.php"); ?>
-<?php require_once("../includes/validation_functions.php"); ?>
+<?php require_once("../includes/validation_functions.php");
+
+include("../includes/templates/header.php");?>
 <?php confirm_logged_in(); ?>
+
 
 <?php
 if (isset($_POST['edituser'])) {
@@ -72,13 +75,21 @@ if (isset($_POST['edituser'])) {
 <body>
 	<?php echo message(); ?>
 	<?php echo form_errors($errors); ?>
-	<h2>Edit Password: <?php echo htmlentities($_SESSION["user_firstname"]); ?></h2>
+    <div class="body-wrapper" style="color: black !important;">
+        <div class="page-wrapper mdc-toolbar-fixed-adjust" style="padding-top: 2%; padding-right: 2%">
+            <main class="content-wrapper" style="padding: 15px 15px 15px 15px !important; text-align: center!important;">
+	<h2>Change Password</h2>
 	<form action="profile.php?userid=<?php echo urlencode($_SESSION["user_id"]); ?>" method="post">
-		<p>Firstname: <input type="text" name="firstname" value="<?php echo htmlentities($_SESSION["user_firstname"]); ?>" /></p>
-		<p>Password: <input type="password" name="password" value="" /></p>
-		<button type="submit" name="edituser"></button>
-	</form>
+		<p>Firstname: &emsp; <input type="text" name="firstname" value="<?php echo htmlentities($_SESSION["user_firstname"]); ?>" /></p>
+		<p>Password: &emsp; <input type="password" name="password" value="" /></p>
+		<button type="submit" name="edituser" class="btn btn-primary" style="width: 25%; color: #fff; background-color: #7306d1; border-color: #7306d1;" > Submit</button>
+        &emsp;&emsp;&emsp;
+	    <button type="reset" class="btn btn-primary" style="width: 25%; color: #fff; background-color: #7306d1; border-color: #7306d1;"> Reset</button>
+    </form>
 	<br />
-	<a href="home.php">Cancel</a>
+
+            </main>
+        </div>
+    </div>
 </body>
 </html>

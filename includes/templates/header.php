@@ -56,8 +56,9 @@
 
                 <span class="mdc-toolbar__input">
             <div class="mdc-text-field">
-                <form action="selectcategory.php" method="POST">
-                    <input type="text" style="background-color: white; color: #563d7c; !important;" class="mdc-text-field__input" id="css-only-text-field-box" placeholder="Search"><input type="submit" value="Search" />
+                <form action="search.php" method="POST">
+                    <input type="text" style="background-color: white; color: #563d7c; !important;" class="mdc-text-field__input" id="css-only-text-field-box" name="searchcat" placeholder="Search">
+
                 </form>
             </div>
           </span>
@@ -65,7 +66,7 @@
             <section class="mdc-toolbar__section mdc-toolbar__section--align-end" role="toolbar">
 
                 <div class="mdc-menu-anchor">
-                    <a href="#" class="mdc-toolbar__icon mdc-ripple-surface" data-mdc-auto-init="MDCRipple">
+                    <a href="selectcategories.php" class="mdc-toolbar__icon mdc-ripple-surface" data-mdc-auto-init="MDCRipple">
                         <i class="material-icons">widgets</i>
                     </a>
                 </div>

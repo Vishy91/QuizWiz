@@ -30,7 +30,8 @@ if (isset($_POST['signup'])) {
     
     if ($result) {
       // Success
-      $_SESSION["message"] = "User created.";
+        $_SESSION["user_id"] = $found_user["user_id"];
+        $_SESSION["user_firstname"] = $found_user["user_firstname"];
       redirect_to("selectcategories.php");
     } else {
       // Failure
@@ -81,7 +82,7 @@ if (isset($_POST['signup'])) {
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
 				<?php echo message(); ?>
 				<?php echo form_errors($errors); ?>
-				<form class="login100-form validate-form" action="selectcategories.php" method="POST">
+				<form class="login100-form validate-form" action="signup.php" method="POST">
 					<span class="login100-form-title p-b-49">
 						Sign Up
 					</span>

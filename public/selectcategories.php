@@ -9,6 +9,7 @@ require_once("../includes/session.php");
 require_once("../includes/data/dbconfig.php");
 require_once("../includes/functions.php");
 require_once("../includes/validation_functions.php");
+confirm_logged_in();
 ?>
 
 <head>
@@ -36,7 +37,7 @@ require_once("../includes/validation_functions.php");
     <div class="page-wrapper mdc-toolbar-fixed-adjust" style="padding-top: 2%; padding-right: 2%">
         <main class="content-wrapper" style="padding: 15px 15px 15px 15px !important;">
             <p style="text-align: center"> <b>SELECT CATEGORIES</b></p>
-    <form action="home.php" method="POST">
+    <form action="subscribecategories.php" method="POST">
     <div class="container-fluid">
         <div class="row" style="padding: 2% 2% 2% 2%">
             <?php $categories = fetch_allcategories();
