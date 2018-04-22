@@ -33,7 +33,12 @@ include("../includes/templates/header.php");
     <link rel="stylesheet" href="css/style.css">
     <!--    End-->
 </head>
+<style>
+    .inks {
+       color: white !important;
+    }
 
+</style>
 <body>
 <div class="body-wrapper" style="color: black !important;">
     <div class="page-wrapper mdc-toolbar-fixed-adjust" style="padding-top: 2%; padding-right: 2%">
@@ -47,7 +52,7 @@ include("../includes/templates/header.php");
                     </div>
                     <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3">
                         <section class="purchase__card_section">
-                            <p>Welcome, <?php echo $_SESSION["user_firstname"]; ?></p>
+                            <p style="font-size: 30px !important;"><b> Category : <?php echo $_GET["catrgoryname"]; ?></b></p>
                         </section>
                     </div>
 
@@ -63,7 +68,7 @@ include("../includes/templates/header.php");
                             <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link" role="tab" id="cat-tab" data-toggle="tab" href="#categories" aria-controls="cat" aria-selected="true"
-                                       aria-expanded="true" style="color: #7306d1 !important; font-weight: bold;" >Categories</a>
+                                       aria-expanded="true" style="color: #7306d1 !important; font-weight: bold;" >Topics</a>
                                 </li>
 
                             </ul>
@@ -81,7 +86,7 @@ include("../includes/templates/header.php");
                                                 <article class="card card-inverse animated fadeInLeft">
                                                     <img class="img-responsive" src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/1U2EGZ07GU.jpg" alt="Deer in nature" />
                                                     <div class="card-img-overlay">
-                                                        <?php echo '<a href="topic.php?topicid=' .$rows["topic_id"].'">'.$rows["topic_name"].'</a>'; ?>
+                                                        <?php echo '<a style="    color: white !important; text-decoration: none !important;" href="topic.php?topicid=' .$rows["topic_id"].'&topicname='.$rows["topic_name"].'">'.$rows["topic_name"].'</a>'; ?>
                                                     </div>
                                                 </article><!-- .end Card -->
                                             </div>

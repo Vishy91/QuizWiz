@@ -50,7 +50,7 @@ include("../includes/templates/header.php");
                     </div>
                     <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3">
                         <section class="purchase__card_section">
-                            <p>Welcome, <?php echo $_SESSION["user_firstname"]; ?></p>
+                            <p><p style="font-size: 30px !important;"><b> Topic: <?php echo $_GET["topicname"]; ?></b></p>
                         </section>
                     </div>
 
@@ -84,7 +84,7 @@ include("../includes/templates/header.php");
                                                 <article class="card card-inverse animated fadeInLeft">
                                                     <img class="img-responsive" src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/1U2EGZ07GU.jpg" alt="Deer in nature" />
                                                     <div class="card-img-overlay">
-                                                        <?php echo '<a href="quiz1.php?quizid=' .$rows["quiz_id"].'">'.$rows["quiz_title"].'</a>'; ?>
+                                                        <?php echo '<a style="    color: white !important; text-decoration: none !important;" href="quiz1.php?quizid=' .$rows["quiz_id"].'">'.$rows["quiz_title"].'</a>'; ?>
                                                     </div>
                                                 </article><!-- .end Card -->
                                             </div>
