@@ -7,19 +7,8 @@ require_once("../includes/validation_functions.php");
 
 if (isset($_POST['submit'])) {
 
-    // validations
-    $required_fields = array("subscription_user_id", "subscription_category_id");
-    validate_presences($required_fields);
-
-    if (!empty($errors)) {
-        $_SESSION["errors"] = $errors;
-        redirect_to("home.php");
-    }
-
-    // Process the form
-
     //SUBSCRIPTIONS table attribute
-    $subscription_user_id = (int) $_POST["subscription_user_id"];
+    $subscription_user_id = $_SESSION["user_id"];
     if(isset($_POST['subscribe']))
     {
         foreach($_POST['subscribe'] as $subscribecbcategoryid){

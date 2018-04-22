@@ -74,7 +74,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" onmouseover="this.style.color= 'pink';"data-toggle="dropdown"><i class="material-icons">more_vert</i></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href=""><i class="material-icons mdc-theme--primary mr-1">settings</i></a></li>
+                            <li><a href="profile.php"><i class="material-icons mdc-theme--primary mr-1">settings</i></a></li>
                             <li><a href="logout.php"><i class="material-icons mdc-theme--primary mr-1">power_settings_new</i></a></li>
 
                         </ul>
