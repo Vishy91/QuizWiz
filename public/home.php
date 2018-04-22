@@ -56,8 +56,7 @@ include("../includes/templates/header.php");
                                     <section class="purchase__card_section d-flex align-item-center">
                                         <?php $quiz_won = get_quiz_won_by_user($_SESSION["user_id"]);
                                         $quizplayed_count= count_quiz_played_by_user($_SESSION["user_id"]);
-
-
+                                        $quizlost_count= get_quiz_lost_by_user($_SESSION["user_id"]);
                                         ?>
                                         Game Statistics:<?php while ($rows = mysqli_fetch_array($quizplayed_count) ) {
                                                 echo $rows['countq'];
@@ -65,7 +64,9 @@ include("../includes/templates/header.php");
                                             <br>
                                         Games Won: <?php while ($rows = mysqli_fetch_array($quiz_won) ) { echo $rows['quiz_won']; }?>
                                         <br>
-                                        Lost: 5
+                                        Lost: <?php while ($rows = mysqli_fetch_array($quizlost_count) ) {
+                                            echo $rows['countq'];
+                                        }?>
                                     </section>
                                 </div>
                             </div>
@@ -123,6 +124,7 @@ include("../includes/templates/header.php");
                                                 <div class="card-img-overlay">
                                                     <p class="card-text">
                                                         <?php echo '<a style=" color: white !important; text-decoration: none !important;" >'.$rows["quiz_title"].'</a>'; ?>
+
                                                     </p>
                                                 </div>
                                             </article><!-- .end Card -->

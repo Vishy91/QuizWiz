@@ -4,7 +4,7 @@ require_once("../includes/data/dbconfig.php");
 require_once("../includes/functions.php");
 require_once("../includes/validation_functions.php");
 confirm_admin_logged_in();
-include("../includes/templates/header.php");
+include("../includes/templates/headeradmin.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,9 +27,9 @@ include("../includes/templates/header.php");
 
     <link rel="stylesheet" type="text/html" href="css/normalize.css">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.min.css'>
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css'>
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css'>
     <link rel="stylesheet" href="css/style.css">
     <!--    End-->
     <style>
@@ -65,7 +65,7 @@ include("../includes/templates/header.php");
                     </div>
                     <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3">
                         <section class="purchase__card_section">
-                            <p>Welcome, <?php echo $_SESSION["username"]; ?></p>
+                            <p>Welcome admin, <?php echo $_SESSION["username"]; ?></p>
                         </section>
                     </div>
                 </div>

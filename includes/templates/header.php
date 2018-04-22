@@ -56,7 +56,9 @@
 
                 <span class="mdc-toolbar__input">
             <div class="mdc-text-field">
-              <input type="text" style="background-color: white; color: #563d7c; !important;" class="mdc-text-field__input" id="css-only-text-field-box" placeholder="Search">
+                <form action="selectcategory.php" method="POST">
+                    <input type="text" style="background-color: white; color: #563d7c; !important;" class="mdc-text-field__input" id="css-only-text-field-box" placeholder="Search"><input type="submit" value="Search" />
+                </form>
             </div>
           </span>
             </section>

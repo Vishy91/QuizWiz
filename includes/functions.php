@@ -205,6 +205,19 @@ function count_quiz_played_by_user($user_id)	{
 			return false;
 		}
 	}
+function get_quiz_lost_by_user($user_id)	{
+    global $connection;
+    $safe_user_id = mysqli_real_escape_string($connection, $user_id);
+
+    $query = "Select COUNT(userquizanswer_quiz_id) as quiz_won from USERQUIZANSWERS where userquizanswer_user_id = {$safe_user_id} AND userquizanswer_won = 0 ";
+    $result = mysqli_query($connection, $query);
+
+    if ($result && mysqli_num_rows($result) >= 0) {
+        return $result;
+    } else {
+        return false;
+    }
+}
 
 	function search_categories($category_name) {
 		global $connection;

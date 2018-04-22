@@ -63,21 +63,8 @@
             <section class="mdc-toolbar__section mdc-toolbar__section--align-end" role="toolbar">
 
                 <div class="mdc-menu-anchor">
-                    <a href="#" class="mdc-toolbar__icon mdc-ripple-surface" data-mdc-auto-init="MDCRipple">
-                        <i class="material-icons">widgets</i>
-                    </a>
-                </div>
-                <div class="mdc-menu-anchor mr-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" onmouseover="this.style.color= 'pink';"data-toggle="dropdown"><i class="material-icons">more_vert</i></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href=""><i class="material-icons mdc-theme--primary mr-1">settings</i></a></li>
-                            <li><a href="logoutadmin.php"><i class="material-icons mdc-theme--primary mr-1">power_settings_new</i></a></li>
+                    <a href="logoutadmin.php"><i class="material-icons mdc-theme--primary mr-1" style="color:white !important;">power_settings_new</i></a>
 
-                        </ul>
-                    </li>
-                </ul>
                 </div>
             </section>
         </div>
