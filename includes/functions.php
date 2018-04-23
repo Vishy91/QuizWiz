@@ -95,7 +95,18 @@
 			return false;
 		}
 	}
+    function fetch_alltopics()	{
+    global $connection;
+//		$safe_user_id = mysqli_real_escape_string($connection);
 
+    $query = "Select * from TOPICS";
+    $result = mysqli_query($connection, $query);
+    if ($result && mysqli_num_rows($result) >= 0) {
+        return $result;
+    } else {
+        return false;
+    }
+}
 	function fetch_topics_for_category($category_id)	{
 		global $connection;
 		$safe_category_id = mysqli_real_escape_string($connection, $category_id);
