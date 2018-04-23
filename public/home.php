@@ -30,6 +30,7 @@ include("../includes/templates/header.php");
     <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css'>
     <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css'>
     <link rel="stylesheet" href="css/style.css">
+
 <!--    End-->
 </head>
 
@@ -91,7 +92,7 @@ include("../includes/templates/header.php");
                 </div>
                             <div class="card-body">
                     <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="categories"  role="tabpanel" aria-labelledby="cat-tab">
+                        <div class="tab-pane show active" id="categories"  role="tabpanel" aria-labelledby="cat-tab">
                             <div class="container-fluid">
                                 <div class="row" style="padding: 2% 2% 2% 2%">
                                     <?php $user_categories = fetch_categories_for_user($_SESSION["user_id"]);
@@ -112,7 +113,7 @@ include("../includes/templates/header.php");
                                 </div><!-- .end Second row -->
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="played" role="tabpanel" aria-labelledby="play-tab">
+                        <div class="tab-pane show active" id="played" role="tabpanel" aria-labelledby="play-tab">
                             <div class="container-fluid">
                                 <div class="row" style="padding: 2% 2% 2% 2%">
                                     <?php $quiz_played = get_quiz_played_by_user($_SESSION["user_id"]);
@@ -147,13 +148,13 @@ include("../includes/templates/header.php");
                             <ul class="nav nav-tabs card-header-tabs" id="myTab1" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link" role="tab" id="reccat-tab" data-toggle="tab" href="#reccategories" aria-controls="cat" aria-selected="false"
-                                       style="color: #7306d1 !important; font-weight: bold;">Rec Categories</a>
+                                       style="color: #7306d1 !important; font-weight: bold;">Recommended Categories</a>
                                 </li>
                             </ul>
                 </div>
                         <div class="card-body">
                             <div class="tab-content" id="myTabContent">
-                                <div class="tab-pane fade show" id="reccategories" style="padding-top: 2%" role="tabpanel" aria-labelledby="reccat-tab">
+                                <div class="tab-pane active show" id="reccategories" style="padding-top: 2%" role="tabpanel" aria-labelledby="reccat-tab">
                                     <div class="container-fluid">
                                     <div class="row" style="padding: 2% 2% 2% 2%">
                                         <?php

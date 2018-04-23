@@ -275,10 +275,13 @@ confirm_logged_in();
                 $quiz_question = fetch_question_for_quiz($_GET["quizid"]);
                 for ($i = 1; $i <= mysqli_num_rows($quiz_question); $i++) {
                     while ($rows = mysqli_fetch_array($quiz_question)) {
-                        echo $rows['question_text'];?>
+                        echo $rows['question_text'];
+                        ?>
                         <br><br>
-                        <?php $quiz_options = fetch_questionoptions_for_question($rows['question_id']);
-                        while ($rows = mysqli_fetch_array($quiz_options)) { ?>
+<?php                        $quiz_options = fetch_questionoptions_for_question($rows['question_id']);
+                        $quiz_options = fetch_questionoptions_for_question($rows['question_id']);
+                        while ($rows = mysqli_fetch_array($quiz_options)) {
+                            echo $rows['questionoption_is_right'];?>
                             <input type="radio" checked="checked" name="quizcheck[<?php echo $rows['questionoption_question_id']; ?>]"
                                                value="<?php echo $rows['questionoption_id']; ?>">
 

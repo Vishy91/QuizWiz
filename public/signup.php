@@ -74,6 +74,11 @@ if (isset($_POST['signup'])) {
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
+    <script type="text/javascript">
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
 </head>
 <body>
 	
@@ -89,7 +94,7 @@ if (isset($_POST['signup'])) {
 
 					<div class="wrap-input100 validate-input m-b-23" data-validate = "Firstname is required">
 						<span class="label-input100">Firstname</span>
-						<input class="input100" type="text" name="firstname" placeholder="Type your firstname">
+						<input class="input100"  type="text" name="firstname" placeholder="Type your firstname">
 						<span class="focus-input100" data-symbol="&#xf206;"></span>
 					</div>
 
@@ -115,12 +120,21 @@ if (isset($_POST['signup'])) {
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
+
 							<button class="login100-form-btn" name="signup">
 								Sign Up
 							</button>
 						</div>
-					</div>
+                    </div>
+                    <br>
+                    <div class="container-login100-form-btn">
+                        <div class="wrap-login100-form-btn">
 
+                            <div class="login100-form-bgbtn"></div>
+                            <a href="index.php" class="login100-form-btn"> Back</a>
+                        </div>
+					</div>
+                    </div>
 				</form>
 			</div>
 		</div>

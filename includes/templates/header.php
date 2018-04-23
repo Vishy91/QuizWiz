@@ -37,6 +37,11 @@
 
 
     </style>
+    <script type="text/javascript">
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
 </head>
 
 <body>
@@ -52,12 +57,12 @@
                 <div class="logo">
                     <img style="width:50px; height:50px;" src="../public/images/a.png">
                 </div>
-                <div class="brand"><a href="home.php?" style="color:white!important; text-decoration: none !important;"> QuizWiz </a></div>
+                <div class="brand"><a data-toggle="tooltip" data-placement="bottom" title="home" href="home.php?" style="color:white!important; text-decoration: none !important;"> QuizWiz </a></div>
 
                 <span class="mdc-toolbar__input">
             <div class="mdc-text-field">
                 <form action="search.php" method="POST">
-                    <input type="text" style="background-color: white; color: #563d7c; !important;" class="mdc-text-field__input" id="css-only-text-field-box" name="searchcat" placeholder="Search">
+                    <input type="text" style="background-color: white; color: #563d7c; !important;" data-toggle="tooltip" data-placement="bottom" title="search" class="mdc-text-field__input" id="css-only-text-field-box" name="searchcat" placeholder="Search">
 
                 </form>
             </div>
@@ -66,8 +71,8 @@
             <section class="mdc-toolbar__section mdc-toolbar__section--align-end" role="toolbar">
 
                 <div class="mdc-menu-anchor">
-                    <a href="selectcategories.php" class="mdc-toolbar__icon mdc-ripple-surface" data-mdc-auto-init="MDCRipple">
-                        <i class="material-icons">widgets</i>
+                    <a href="selectcategories.php" class="mdc-toolbar__icon mdc-ripple-surface" data-mdc-auto-init="MDCRipple" data-toggle="tooltip" data-placement="bottom" title="select categories">
+                        <i class="material-icons" >widgets</i>
                     </a>
                 </div>
                 <div class="mdc-menu-anchor mr-1">
