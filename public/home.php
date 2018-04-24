@@ -78,9 +78,9 @@ include("../includes/templates/header.php");
             <div class="row">
                 <div class="col-sm-9 col-md-6 col-lg-8" >
                     <div class="card" >
-                            <div class="card-header">
+                        <div class="card-header">
                     <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
-                        <li class="nav-item">
+                        <li class="nav-item active">
                             <a class="nav-link" role="tab" id="cat-tab" data-toggle="tab" href="#categories" aria-controls="cat" aria-selected="false"
                             style="color: #7306d1 !important; font-weight: bold;" >Categories</a>
                         </li>
@@ -90,13 +90,14 @@ include("../includes/templates/header.php");
 
                     </ul>
                 </div>
-                            <div class="card-body">
+                        <div class="card-body">
                     <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane show active" id="categories"  role="tabpanel" aria-labelledby="cat-tab">
+                        <div class="tab-pane fade in active " id="categories"  role="tabpanel" aria-labelledby="cat-tab">
                             <div class="container-fluid">
                                 <div class="row" style="padding: 2% 2% 2% 2%">
                                     <?php $user_categories = fetch_categories_for_user($_SESSION["user_id"]);
-                                    while ($rows = mysqli_fetch_array($user_categories) ) {?>
+                                    while ($rows = mysqli_fetch_array($user_categories) ) {
+                                        ?>
                                     <div class="col-sm-3 col-md-3">
                                         <!-- Card -->
                                         <article class="card card-inverse animated fadeInLeft">
@@ -109,14 +110,16 @@ include("../includes/templates/header.php");
                                         </article><!-- .end Card -->
                                     </div>
                                     <?php } ?>
-
                                 </div><!-- .end Second row -->
                             </div>
                         </div>
-                        <div class="tab-pane show active" id="played" role="tabpanel" aria-labelledby="play-tab">
+                        <div class="tab-pane fade " id="played" role="tabpanel" aria-labelledby="play-tab">
                             <div class="container-fluid">
                                 <div class="row" style="padding: 2% 2% 2% 2%">
                                     <?php $quiz_played = get_quiz_played_by_user($_SESSION["user_id"]);
+                                    if (!$quiz_played){ ?>
+                                        <p> No Quiz played </p>
+                                    <?php }else{
                                     while ($rows = mysqli_fetch_array($quiz_played) ) { ?>
                                         <div class="col-sm-3 col-md-3">
                                             <!-- Card -->
@@ -130,7 +133,7 @@ include("../includes/templates/header.php");
                                                 </div>
                                             </article><!-- .end Card -->
                                         </div>
-                                    <?php } ?>
+                                    <?php } }?>
 
                                 </div><!-- .end Second row -->
                             </div>

@@ -97,7 +97,8 @@ confirm_logged_in();
                 c--;
                 cd.html(c);
                 if (c == 0) {
-                    window.location.reload(false);
+                    alert ("Times up!!!");
+                    document.getElementsByTagName('button')[0].click();
                     clearInterval(interv);
                 }
             }, 1000);
@@ -258,16 +259,16 @@ confirm_logged_in();
 <body bgcolor="#e3e3e3">
 
 <div class="container"  align="center" >
-    <form class="form-horizontal" role="form" style="margin-top: 5%;" method="POST" action="result.php">
+    <form class="form-horizontal" role="form" style="margin-top: 5%;" method="POST" action="result1.php" >
         <div class="panel panel-default" style="margin-top: 10%;width: 120%; ">
-            <div class="panel-heading">Taking Question</div>
+            <div class="panel-heading">Quiz </div>
 
             <!-- <form class="form-horizontal" role="form" style="margin-top: 5%;"> -->
 
             <div class="form-group">
                 <div class="col-sm-6" align="right">Time Left:
                 </div>
-                <div class="col-sm-6" id='countdown' align="left">60
+                <div class="col-sm-6" id='countdown' align="left">10
                 </div>
             </div>
             <!-- </form> -->
@@ -275,15 +276,19 @@ confirm_logged_in();
                 $quiz_question = fetch_question_for_quiz($_GET["quizid"]);
                 for ($i = 1; $i <= mysqli_num_rows($quiz_question); $i++) {
                     while ($rows = mysqli_fetch_array($quiz_question)) {
-                        echo $rows['question_text'];
-                        ?>
-                        <br><br>
+                       ?> <p style="font-size: 24px; font-weight: bold; color: #7306d1"><b> <?php echo $rows['question_text'];
+                        ?></b></p>
+
 <?php                        $quiz_options = fetch_questionoptions_for_question($rows['question_id']);
                         while ($rows = mysqli_fetch_array($quiz_options)) {
-                            echo $rows['questionoption_is_right'];?>
-                            <input type="radio" checked="checked" name="quizcheck[<?php echo $rows['questionoption_question_id']; ?>]"
-                                               value="<?php echo $rows['questionoption_id']; ?>">
+                            ?>
+                            <input type="hidden" value="<?php echo $_GET['quizid'];?>" name="quizid">
 
+                            <input type="hidden" value="<?php echo $_GET['topicname'];?>" name="topicname">
+                            <input type="hidden" value="<?php echo $_GET['topicid'];?>" name="topicid">
+                            <input type="radio" checked="checked" style=" text-align: left !important; font-size: 22px; font-weight: bold; color: black;"
+                                   name="quizcheck[<?php echo $rows['questionoption_question_id']; ?>]"
+                                   value="<?php echo $rows['questionoption_id']; echo "-";echo $rows['questionoption_is_right'];  ?>">
                                         <?php echo $rows['questionoption_text'];
                                         ?>
             <br>
@@ -305,3 +310,4 @@ confirm_logged_in();
 <script type="text/javascript" src="js/bootstrap.js"></script>
 </body>
 </html>
+<!--Array ( [1] => 1 [2] => 5 [3] => 9 [4] => 13 [5] => 17 )-->
