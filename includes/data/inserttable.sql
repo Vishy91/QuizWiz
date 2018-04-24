@@ -196,16 +196,6 @@ VALUES
   ('Daniel Day-Lewis', 34, 1),
   ('Dustin Hoffman', 34, 0),
   ('Oprah Winfrey', 35, 1),
-  ('Anne Cox Chambers', 35, 0),
-  ('Spike Jonze', 31, 1),
-  ('Spike Lee', 31, 0),
-  ('James Mitchum', 32, 0),
-  ('Robert Mitchum', 32, 1),
-  ('Fiona Gordon', 33, 0),
-  ('Emmanuella Riva', 33, 1),
-  ('Daniel Day-Lewis', 34, 1),
-  ('Dustin Hoffman', 34, 0),
-  ('Oprah Winfrey', 35, 1),
   ('Anne Cox Chambers', 35, 0);
 
 INSERT INTO USERQUIZANSWERS

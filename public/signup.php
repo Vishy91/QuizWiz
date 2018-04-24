@@ -27,12 +27,15 @@ if (isset($_POST['signup'])) {
     $query .= ")";
 
     $result = mysqli_query($connection, $query);
+    $user_id = get_user_id_for_new_user();
+    $rows = mysqli_fetch_array($user_id);
+    $u_id = $rows['count_user'];
     
     if ($result) {
       // Success
-        $_SESSION["user_id"] = $found_user["user_id"];
-        $_SESSION["user_firstname"] = $found_user["user_firstname"];
-      redirect_to("selectcategories.php");
+		$_SESSION["user_id"] = $u_id;
+		$_SESSION["user_firstname"] = $firstname;
+		redirect_to("selectcategories.php");
     } else {
       // Failure
       $_SESSION["message"] = "User Creation Failed";

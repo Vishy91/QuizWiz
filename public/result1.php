@@ -5,29 +5,8 @@ require_once("../includes/functions.php");
 confirm_logged_in();
 require_once("../includes/validation_functions.php");
 include("../includes/templates/header.php");
-
-//    $time = '00:00:00';
-//    $user_id = $_SESSION['user_id'];
-//    $quiz_id = $_POST['quizid'];
-//    $finalresult = " Insert into USERQUIZANSWER(";
-//    $finalresult .= "userquizanswer_user_id, userquizanswer_quiz_id, userquizanswer_won, userquizanswer_answer_time";
-//    $finalresult .= ") values (";
-//    $finalresult .=  "'{$user_id}', '{$quiz_id}','{$userquizanswer_won}','{$time}'";
-//    $finalresult .= ")";
-//    $queryresult = mysqli_query($connection, $finalresult);
-//
-//    if ($queryresult){
-////        echo "inserted";
-//    }
-//    else{
-////        echo "sad";
-//    }
-//
-//else{
-//    echo "not selected";
-//}
-
 ?>
+
 <html>
 <head>
     <title>Result</title>
@@ -150,31 +129,46 @@ include("../includes/templates/header.php");
     <div class="page-wrapper mdc-toolbar-fixed-adjust" style="padding-top: 2%; padding-right: 2%">
         <main class="content-wrapper" style="padding: 15px 15px 15px 15px !important;">
         <?php
+        $userquizanswer_won = 0;
+        $sum = 0;
         if(!empty($_POST['quizcheck'])) {
             $quicheck = $_POST['quizcheck'];
-            $output = explode("-", $quicheck);
-            $sum = 0;
+            $output = [];
             foreach ($quicheck as &$value) {
                 echo "\n \n\n\n\n";
                 $output = explode("-", $value);
                 $sum += $output[1];
             }
             $average = round(count($quicheck) / 2);
-            $message="HELLLLLPOOO";
+            $message = "HELLLLLPOOO";
             if ($sum > $average) {
-//        echo "won";
                 $message= "You Won. Click on the smiley to see details.";
                 $userquizanswer_won = 1;
             } else {
-//        echo "lost";
                 $message= "You lost. Click on the smiley to see details.";
                 $userquizanswer_won = 0;
             }
-        }?>
+        }
+        $time = '00:00:00';
+        $user_id = $_SESSION['user_id'];
+        $quiz_id = $_GET["quizid"];
+        $result = " Insert into USERQUIZANSWERS(userquizanswer_user_id, userquizanswer_quiz_id, userquizanswer_won, userquizanswer_answer_time) values ($user_id, $quiz_id, $userquizanswer_won, '$time') ";
+        global $connection;
+        $queryresult= mysqli_query($connection,$result);
+        if ($result) {
+            // Success
+            //$_SESSION["message"] = "USERQUIZANSWERS inserted!";
+            //redirect_to("home.php");
+        } else {
+            // Failure
+            $_SESSION["message"] = "USERQUIZANSWERS failed!!";
+            redirect_to("home.php");
+        }
+        ?>
 
             <div class="container">
                 <div class="row" style="padding-top: 5%;">
-                    <div class="card text-center displayed" style="width: 40%;">
+                    <div class="card text-center displayed" style="width: 43%;">
                         <div class="card-header">
                             <h2>Result</h2>
 
@@ -182,7 +176,7 @@ include("../includes/templates/header.php");
                         <div class="card-body" style="padding-left: 5%;">
                     <!-- Info Card with social icons -->
 
-                                <p><?php  echo $message; ?></p>
+                                <p><?php echo $message; ?></p>
                                 <div class="info-card displayed" style="    padding-bottom: 5%;">
                                 <?php if ($sum > $average){
                                 ?>

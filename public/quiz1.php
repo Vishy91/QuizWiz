@@ -259,7 +259,7 @@ confirm_logged_in();
 <body bgcolor="#e3e3e3">
 
 <div class="container"  align="center" >
-    <form class="form-horizontal" role="form" style="margin-top: 5%;" method="POST" action="result1.php" >
+    <form class="form-horizontal" role="form" style="margin-top: 5%;" method="POST" action="result1.php?quizid=<?php echo urlencode($_GET["quizid"]); ?>" >
         <div class="panel panel-default" style="margin-top: 10%;width: 120%; ">
             <div class="panel-heading">Quiz </div>
 

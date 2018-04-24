@@ -40,7 +40,7 @@ confirm_logged_in();
     <form action="subscribecategories.php" method="POST">
     <div class="container-fluid">
         <div class="row" style="padding: 2% 2% 2% 2%">
-            <?php $categories = fetch_allcategories();
+            <?php $categories = fetch_not_categories_for_user($_SESSION['user_id']);
             while ($rows = mysqli_fetch_array($categories) ) {?>
                 <div class="col-sm-3 col-md-3">
                     <!-- Card -->
