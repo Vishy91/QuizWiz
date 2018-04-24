@@ -16,12 +16,7 @@ include("../includes/templates/headeradmin.php");
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!-- jQuery library -->
-    <!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
 
-    <!-- Latest compiled JavaScript -->
-    <!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
-    <!-- Required meta tags -->
     <meta charset="utf-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -36,6 +31,11 @@ include("../includes/templates/headeradmin.php");
     <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css'>
     <link rel="stylesheet" href="css/style.css">
     <!--    End-->
+<!--    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" ></script>-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>‌​
+
+
     <style>
         .b1 {
             background-color: #7306d1 !important;
@@ -51,17 +51,6 @@ include("../includes/templates/headeradmin.php");
             width:110%;
         }
     </style>
-    <script type="text/javascript">
-        $('#exampleModal').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget) // Button that triggered the modal
-            var recipient = button.data('whatever') // Extract info from data-* attributes
-            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-            var modal = $(this)
-            modal.find('.modal-title').text('New message to ' + recipient)
-            modal.find('.modal-body input').val(recipient)
-        })
-    </script>
 </head>
 
 <body>
@@ -92,6 +81,8 @@ include("../includes/templates/headeradmin.php");
             <button type="button" class="btn btn-secondary btn-lg btn-block b1" data-toggle="modal" data-target="#exampleModal" >Categories</button>
             <button type="button" class="btn btn-secondary btn-lg btn-block b1" data-toggle="modal" data-target="#exampleModal1" data-whatever="@fat">Topics</button>
             <button type="button" class="btn btn-secondary btn-lg btn-block b1" data-toggle="modal" data-target="#exampleModal2" data-whatever="@getbootstrap">Quiz</button>
+            <button type="button" class="btn btn-secondary btn-lg btn-block b1" data-toggle="modal" data-target="#exampleModal3" data-whatever="@getbootstrap">Questions for Quiz</button>
+
                 </div>
             </div>
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -181,6 +172,47 @@ include("../includes/templates/headeradmin.php");
                                     <br>
                                     <label for="message-text" class="form-control-label">Name:</label>
                                     <textarea class="form-control" id="category" name="quiz_name" value=""></textarea>
+                                </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="reset" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary"  name="create" value="create">Create</button>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">New Questions</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="createquestions.php" method="POST">
+                                <div class="form-group">
+                                    <label for="message-text" class="form-control-label">Select Quiz:</label>
+                                    <select name="quiz_id">
+                                        <?php $quizes = fetch_allquizes();
+                                        while ($rows = mysqli_fetch_array($quizes) ) {?>
+                                            <option name="<?php echo $rows['quiz_id']; ?>" value="<?php echo $rows['quiz_id']; ?>">
+                                                <?php echo $rows["quiz_title"];?>
+                                            </option>
+                                        <?php }?>
+                                    </select>
+                                    <br>
+                                    <label for="message-text" class="form-control-label">Select no of questions:</label>
+                                    <select name="noofquestions" id="noofquestions">
+                                        <option name="<?php echo 1; ?>" value=1> 1</option>
+                                        <option name="<?php echo 2; ?>" value=2> 2</option>
+                                        <option name="<?php echo 3; ?>" value=3> 3</option>
+                                        <option name="<?php echo 4; ?>" value=4> 4</option>
+                                        <option name="<?php echo 5; ?>" value=5> 5</option>
+                                    </select>
                                 </div>
                         </div>
                         <div class="modal-footer">
