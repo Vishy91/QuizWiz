@@ -43,31 +43,41 @@ include("../includes/templates/header.php");
 <!--                    <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cellspan-12" style="height: 150%;"-->
                         <div class="mdc-card" style="height: 150%; color: #7306d1 !important; font-weight: bold; padding: 2% 2% 2% 2% !important; ">
                             <div class="mdc-layout-grid__inner" >
-                                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3">
+                                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-2">
                                     <section class="purchase__card_section" >
                                         <img src="images/faces/face1.jpg">
                                     </section>
                                 </div>
-                                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3">
+                                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6">
                                     <section class="purchase__card_section">
                                         <p>Welcome, <?php echo $_SESSION["user_firstname"]; ?></p>
                                     </section>
                                 </div>
-                                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-5">
+                                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-4">
                                     <section class="purchase__card_section d-flex align-item-center">
                                         <?php $quiz_won = get_quiz_won_by_user($_SESSION["user_id"]);
                                         $quizplayed_count= count_quiz_played_by_user($_SESSION["user_id"]);
                                         $quizlost_count= get_quiz_lost_by_user($_SESSION["user_id"]);
+//                                        print_r( $quizplayed_count);
                                         ?>
-                                        Game Statistics:<?php while ($rows = mysqli_fetch_array($quizplayed_count) ) {
-                                                echo $rows['countq'];
+                                        <?php while ($rows = mysqli_fetch_array($quizplayed_count) )
+                                            { if($rows['countq'] == 0){?>
+                                                <p>Game Statistics: No game played </p>
+
+                                                <?php }
+                                                else{?>
+                                                    Game Statistics: <?php
+                                                    echo $rows['countq']; ?>
+                                                    <br>
+                                                    Games Won: <?php while ($rows = mysqli_fetch_array($quiz_won) ) { echo $rows['quiz_won']; }?>
+                                                    <br>
+                                                    Lost: <?php while ($rows = mysqli_fetch_array($quizlost_count) ) {
+                                                        echo $rows['quiz_lost'];
+                                                    }?>
+                                              <?php  }
                                             }?>
                                             <br>
-                                        Games Won: <?php while ($rows = mysqli_fetch_array($quiz_won) ) { echo $rows['quiz_won']; }?>
-                                        <br>
-                                        Lost: <?php while ($rows = mysqli_fetch_array($quizlost_count) ) {
-                                            echo $rows['quiz_lost'];
-                                        }?>
+
                                     </section>
                                 </div>
                             </div>

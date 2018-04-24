@@ -43,14 +43,15 @@ include("../includes/templates/header.php");
             <!--                    <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cellspan-12" style="height: 150%;"-->
             <div class="mdc-card" style="height: 150%; color: #7306d1 !important; font-weight: bold; padding: 2% 2% 2% 2% !important; ">
                 <div class="mdc-layout-grid__inner" >
-                    <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3">
+                    <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-2">
                         <section class="purchase__card_section" >
                             <img src="images/faces/face1.jpg">
                         </section>
                     </div>
-                    <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3">
+                    <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-10">
                         <section class="purchase__card_section">
                             <p><p style="font-size: 30px !important;"><b> Topic: <?php echo $_GET["topicname"]; ?></b></p>
+                            <p style="color:black !important;font-size: 20px !important;">You can now select any quizes from below. The quiz name reflects the level of difficulty. </p>
                         </section>
                     </div>
 

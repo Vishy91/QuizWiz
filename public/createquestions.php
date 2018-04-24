@@ -78,44 +78,11 @@ else{
                 <div class="row">
 
                     <p>Create questions and 4 options each question  for the quiz <?php echo $_SESSION['$quiz_id']; echo $resultq; ?></p>
-            <button type="button" class="btn btn-secondary btn-lg btn-block b1" data-toggle="modal" data-target="#exampleModal" >Create Question</button>
             <button type="button" class="btn btn-secondary btn-lg btn-block b1" data-toggle="modal" data-target="#exampleModal1" data-whatever="@fat">Create answer options</button>
                 </div>
             </div>
 
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">New Questions </h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form action="insertquestion.php" method="POST">
-                                <div class="form-group">
-
-                                        <?php for ($i=1;$i<=$noofquestions;$i++){
-                                            ?>
-
-                                            <label for="message-text" class="form-control-label">Question <?php echo $i;?>:</label>
-                                            <textarea class="form-control" id="category" name="quizcheck[<?php echo $i; ?>]" value=""></textarea>
-                                            <br><br>
-                                        <?php } ?>
-                                        <input type="hidden" value="<?php echo $quiz_id;?>" name="quiz_id">
-
-                                </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="reset" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary"  name="create" value="create">Create</button>
-                        </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+             <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -131,9 +98,14 @@ else{
                                     <?php for ($i=1;$i<=$noofquestions;$i++){
                                         ?>
 
-                                        <label for="message-text" class="form-control-label">Question <?php echo $i;?>:</label>
-                                        <textarea class="form-control" id="category" name="quizcheck[<?php echo $i; ?>]" value=""></textarea>
+                                        <label for="message-text" class="form-control-label" >Question <?php echo $i;?>:</label>
+                                        <textarea class="form-control" id="category" required
+                                                  name="quizcheck[<?php echo $i; ?>]" value=""></textarea>
                                         <br><br>
+                                        <?php for($j=1; $j<=4; $j++){ ?>
+                                        <label for="message-text" class="form-control-label">Options <?php echo $j;?>:</label>
+                                        <textarea class="form-control" id="category" required name="answer[<?php echo $j; echo "-";echo $j; ?>]" value=""></textarea>
+                                        <?php } ?>
                                     <?php } ?>
                                     <input type="hidden" value="<?php echo $quiz_id;?>" name="quiz_id">
 
@@ -148,15 +120,8 @@ else{
                 </div>
             </div>
 
-
-
             <br>
 
-<!--            --><?php //for($j=1; $j<=4; $j++){ ?>
-<!--                <label for="message-text" class="form-control-label">Option --><?php //echo $j;?><!--:</label>-->
-<!--                <textarea class="form-control" id="category" name="answer" value=""></textarea>-->
-
-<!--            --><?php //} ?>
         </main>
     </div>
 </div>

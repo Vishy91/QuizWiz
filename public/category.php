@@ -45,14 +45,15 @@ include("../includes/templates/header.php");
         <main class="content-wrapper" style="padding: 15px 15px 15px 15px !important;">
            <div class="mdc-card" style="height: 150%; color: #7306d1 !important; font-weight: bold; padding: 2% 2% 2% 2% !important; ">
                 <div class="mdc-layout-grid__inner" >
-                    <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3">
+                    <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-2">
                         <section class="purchase__card_section" >
                             <img src="images/faces/face1.jpg">
                         </section>
                     </div>
-                    <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3">
+                    <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-5">
                         <section class="purchase__card_section">
-                            <p style="font-size: 30px !important;"><b> Category : <?php echo $_GET["catrgoryname"]; ?></b></p>
+                            <p style="font-size: 30px !important;"><b> Category : <?php echo $_GET["catrgoryname"]; ?> </b></p>
+                            <p style="color:black !important;font-size: 20px !important;">You can now select any topics from below. </p>
                         </section>
                     </div>
 
@@ -68,7 +69,7 @@ include("../includes/templates/header.php");
                             <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link" role="tab" id="cat-tab" data-toggle="tab" href="#categories" aria-controls="cat" aria-selected="true"
-                                       aria-expanded="true" style="color: #7306d1 !important; font-weight: bold;" >Topics</a>
+                                       aria-expanded="true" style="color: #7306d1 !important; font-weight: bold;" > Topics</a>
                                 </li>
 
                             </ul>

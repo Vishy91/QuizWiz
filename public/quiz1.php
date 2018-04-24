@@ -268,7 +268,7 @@ confirm_logged_in();
             <div class="form-group">
                 <div class="col-sm-6" align="right">Time Left:
                 </div>
-                <div class="col-sm-6" id='countdown' align="left">10
+                <div class="col-sm-6" id='countdown' align="left">60
                 </div>
             </div>
             <!-- </form> -->
