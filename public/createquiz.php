@@ -2,18 +2,16 @@
 require_once("../includes/session.php");
 require_once("../includes/data/dbconfig.php");
 require_once("../includes/functions.php");
-confirm_logged_in();
+confirm_admin_logged_in();
 require_once("../includes/validation_functions.php");
 
 if (isset($_POST['create'])) {
 
-    //Query for category creation
+    //Query for quiz creation
 
     $quiz_topic_id= $_POST['quiz'];
     $quiz_name = $_POST['quiz_name'];
-//    print_r($topic_name);
-//    print_r($quiz_topic_id);
-//            //Query for category creation
+
     $query = " INSERT INTO QUIZZES (";
     $query .= "  quiz_title, quiz_topic_id ";
     $query .= " )VALUES (";
@@ -30,7 +28,7 @@ if (isset($_POST['create'])) {
         // Failure
         $_SESSION["message"] = "Quiz creation failed!!";
         print_r($_SESSION["message"]);
-        redirect_to("home.php");
+        redirect_to("adminhome.php");
     }
 
 }

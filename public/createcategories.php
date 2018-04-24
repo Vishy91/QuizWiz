@@ -2,7 +2,7 @@
 require_once("../includes/session.php");
 require_once("../includes/data/dbconfig.php");
 require_once("../includes/functions.php");
-confirm_logged_in();
+confirm_admin_logged_in();
 require_once("../includes/validation_functions.php");
 
 if (isset($_POST['create'])) {
@@ -23,14 +23,14 @@ if (isset($_POST['create'])) {
 
     if ($result) {
         // Success
-        $_SESSION["message"] = "Categries created!!";
+        $_SESSION["message"] = "Categories created!!";
 //        print_r($_SESSION["message"]);
         redirect_to("adminhome.php");
     } else {
         // Failure
-        $_SESSION["message"] = "Categries creation failed!!";
+        $_SESSION["message"] = "Categories creation failed!!";
         print_r($_SESSION["message"]);
-        redirect_to("home.php");
+        redirect_to("adminhome.php");
     }
 
 }

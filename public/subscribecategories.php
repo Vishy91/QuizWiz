@@ -24,11 +24,11 @@ if (isset($_POST['submit'])) {
 
     if ($result) {
     // Success
-        $_SESSION["message"] = "Categries subscribed!!";
+        $_SESSION["message"] = "Categories subscribed!!";
         redirect_to("home.php");
     } else {
     // Failure
-        $_SESSION["message"] = "Categries subscription failed!!";
+        $_SESSION["message"] = "Categories subscription failed!!";
         redirect_to("home.php");
     }
 

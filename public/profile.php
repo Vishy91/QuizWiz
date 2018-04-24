@@ -84,9 +84,9 @@ if (isset($_POST['edituser'])) {
 		<p>Password: &emsp; <input type="password" name="password" value="" /></p>
 		<button type="submit" name="edituser" class="btn btn-primary" style="width: 25%; color: #fff; background-color: #7306d1; border-color: #7306d1;" > Submit</button>
         &emsp;&emsp;&emsp;
-	    <button type="reset" class="btn btn-primary" style="width: 25%; color: #fff; background-color: #7306d1; border-color: #7306d1;"> Reset</button>
     </form>
 	<br />
+  <a href="home.php">Cancel</a>
 
             </main>
         </div>

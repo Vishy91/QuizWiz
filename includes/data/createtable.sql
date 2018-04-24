@@ -77,28 +77,3 @@ CREATE TABLE USERQUIZANSWERS(
 	FOREIGN KEY (userquizanswer_user_id) REFERENCES USERS (user_id),
 	FOREIGN KEY (userquizanswer_quiz_id) REFERENCES QUIZZES (quiz_id)
 );
-
---Quiz played by a user
-DROP TABLE IF EXISTS USERQUIZ;
-CREATE TABLE USERQUIZ(
-	userquiz_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-	userquiz_user_id INT,
-	userquiz_quiz_id INT,
-	FOREIGN KEY (userquiz_user_id) REFERENCES USERS (user_id),
-	FOREIGN KEY (userquiz_quiz_id) REFERENCES QUIZZES (quiz_id)
-);
-
---Quiz sent by another user
---user1 : challenger user id
---user2 : challenged to user id
-DROP TABLE IF EXISTS CHALLENGES;
-CREATE TABLE CHALLENGES(
-	challenge_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-	challenge_quiz_id INT,
-	challenge_user1_id INT,
-	challenge_user2_id INT,
-	challenge_played bool,
-	challenge_winner INT,
-	FOREIGN KEY (challenge_quiz_id) REFERENCES QUIZZES (quiz_id),
-	FOREIGN KEY (challenge_user1_id, challenge_user2_id, challenge_winner) REFERENCES USERS (user_id, user_id, user_id),
-);

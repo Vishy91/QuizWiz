@@ -57,7 +57,7 @@
                 <div class="logo">
                     <img style="width:50px; height:50px;" src="../public/images/a.png">
                 </div>
-                <div class="brand"><a data-toggle="tooltip" data-placement="bottom" title="home" href="home.php?" style="color:white!important; text-decoration: none !important;"> QuizWiz </a></div>
+                <div class="brand"><a data-toggle="tooltip" data-placement="bottom" title="home" href="home.php" style="color:white!important; text-decoration: none !important;"> QuizWiz </a></div>
 
                 <span class="mdc-toolbar__input">
             <div class="mdc-text-field">

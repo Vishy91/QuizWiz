@@ -217,15 +217,3 @@ VALUES
   (1, 4, 1, '00:00:00'),
   (1, 5, 0, '00:00:00'),
   (1, 6, 0, '00:00:00');
-
-INSERT INTO USERQUIZ
-  (userquiz_user_id, userquiz_quiz_id)
-VALUES
-  (, ),
-  (, );
-
-INSERT INTO CHALLENGES
-  (challenge_quiz_id, challenge_user1_id, challenge_user2_id, challenge_played, challenge_winner)
-VALUES
-  (, , ,'', ),
-  (, , ,'', ),;

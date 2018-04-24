@@ -2,18 +2,16 @@
 require_once("../includes/session.php");
 require_once("../includes/data/dbconfig.php");
 require_once("../includes/functions.php");
-confirm_logged_in();
+confirm_admin_logged_in();
 require_once("../includes/validation_functions.php");
 
 if (isset($_POST['create'])) {
 
-    //Query for category creation
+    //Query for topic creation
 
     $category_id = $_POST['topics'];
     $topic_name = $_POST['topic_name'];
-//    print_r($topic_name);
-//    print_r($category_id);
-//            //Query for category creation
+
     $query = " INSERT INTO TOPICS (";
     $query .= " topic_name, topic_category_id ";
     $query .= " )VALUES (";
@@ -28,9 +26,9 @@ if (isset($_POST['create'])) {
         redirect_to("adminhome.php");
     } else {
         // Failure
-        $_SESSION["message"] = "Categries creation failed!!";
+        $_SESSION["message"] = "Topic creation failed!!";
         print_r($_SESSION["message"]);
-        redirect_to("home.php");
+        redirect_to("adminhome.php");
     }
 
 }

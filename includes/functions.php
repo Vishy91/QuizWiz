@@ -202,19 +202,20 @@
 			return false;
 		}
 	}
-function count_quiz_played_by_user($user_id)	{
-    global $connection;
-    $safe_user_id = mysqli_real_escape_string($connection, $user_id);
 
-    $query = "Select COUNT(q.quiz_title) as countq FROM QUIZZES q JOIN USERQUIZANSWERS u ON q.quiz_id = u.userquizanswer_quiz_id WHERE userquizanswer_user_id = {$safe_user_id} ";
-    $result = mysqli_query($connection, $query);
+	function count_quiz_played_by_user($user_id)	{
+		global $connection;
+		$safe_user_id = mysqli_real_escape_string($connection, $user_id);
 
-    if ($result && mysqli_num_rows($result) >= 0) {
-        return $result;
-    } else {
-        return false;
-    }
-}
+		$query = "Select COUNT(q.quiz_title) as countq FROM QUIZZES q JOIN USERQUIZANSWERS u ON q.quiz_id = u.userquizanswer_quiz_id WHERE userquizanswer_user_id = {$safe_user_id} ";
+		$result = mysqli_query($connection, $query);
+
+		if ($result && mysqli_num_rows($result) >= 0) {
+		    return $result;
+		} else {
+		    return false;
+		}
+	}
 
 	function get_quiz_won_by_user($user_id)	{
 		global $connection;
@@ -229,19 +230,20 @@ function count_quiz_played_by_user($user_id)	{
 			return false;
 		}
 	}
-function get_quiz_lost_by_user($user_id)	{
-    global $connection;
-    $safe_user_id = mysqli_real_escape_string($connection, $user_id);
 
-    $query = "Select COUNT(userquizanswer_quiz_id) as quiz_lost from USERQUIZANSWERS where userquizanswer_user_id = {$safe_user_id} AND userquizanswer_won = 0 ";
-    $result = mysqli_query($connection, $query);
+	function get_quiz_lost_by_user($user_id)	{
+		global $connection;
+		$safe_user_id = mysqli_real_escape_string($connection, $user_id);
 
-    if ($result && mysqli_num_rows($result) >= 0) {
-        return $result;
-    } else {
-        return false;
-    }
-}
+		$query = "Select COUNT(userquizanswer_quiz_id) as quiz_lost from USERQUIZANSWERS where userquizanswer_user_id = {$safe_user_id} AND userquizanswer_won = 0 ";
+		$result = mysqli_query($connection, $query);
+
+		if ($result && mysqli_num_rows($result) >= 0) {
+			return $result;
+		} else {
+			return false;
+		}
+	}
 
 	function search_categories($category_name) {
 		global $connection;
