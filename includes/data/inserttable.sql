@@ -8,8 +8,8 @@ VALUES
 INSERT INTO USERS
   (user_firstname, user_lastname, user_email, user_password) 
 VALUES
-  ('Shweta', 'Bhartia', 'shweta.bhartia93@gmail.com','shwetabh'),
-  ('Vaishnavi', 'Mukundhan', 'vaishnavim@gmail.com','vaishnavimu');
+  ('Shweta', 'Bhartia', 'shweta.bhartia93@gmail.com','$2y$10$OTk2OTllMmFjYmI0MzIyMOK7Sf0OLXslCYHFlVoC5Bg1V4Y5u45sO'),
+  ('Vaishnavi', 'Mukundhan', 'vaishnavim@gmail.com','$2y$10$M2VmNDg0MTkwNzY2NTFlZO0CNYvNBZPcoEsb37uFzdzvXDgjY7Oa6');
 
 INSERT INTO CATEGORIES 
     (category_name, category_tag)
@@ -201,8 +201,6 @@ VALUES
 INSERT INTO USERQUIZANSWERS
   (userquizanswer_user_id, userquizanswer_quiz_id, userquizanswer_won, userquizanswer_answer_time)
 VALUES
-  (1, 1, 1, '00:00:00'),
-  (1, 2, 1, '00:00:00'),
   (1, 3, 1, '00:00:00'),
   (1, 4, 1, '00:00:00'),
   (1, 5, 0, '00:00:00'),

@@ -45,7 +45,7 @@ include("../includes/templates/header.php");
                 <div class="mdc-layout-grid__inner" >
                     <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-2">
                         <section class="purchase__card_section" >
-                            <img src="images/faces/face1.jpg">
+                            <img src="images/Topic.png" style="width: 100px; height: 100px;">
                         </section>
                     </div>
                     <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-10">
@@ -83,7 +83,7 @@ include("../includes/templates/header.php");
                                             <div class="col-sm-3 col-md-3">
                                                 <!-- Card -->
                                                 <article class="card card-inverse animated fadeInLeft">
-                                                    <img class="img-responsive" src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/1U2EGZ07GU.jpg" alt="Deer in nature" />
+                                                    <img class="img-responsive" src="images/quiz.png" alt="Deer in nature" />
                                                     <div class="card-img-overlay">
                                                         <?php echo '<a style="    color: white !important; text-decoration: none !important;" href="quiz1.php?quizid=' .$rows["quiz_id"].'&topicid='.$_GET["topicid"].'&topicname='.$_GET["topicname"].'">'.$rows["quiz_title"].'</a>'; ?>
                                                     </div>

@@ -141,7 +141,7 @@ include("../includes/templates/header.php");
             }
             $average = round(count($quicheck) / 2);
             $message = "HELLLLLPOOO";
-            if ($sum > $average) {
+            if ($sum >= $average) {
                 $message= "You Won. Click on the smiley to see details.";
                 $userquizanswer_won = 1;
             } else {
@@ -178,7 +178,7 @@ include("../includes/templates/header.php");
 
                                 <p><?php echo $message; ?></p>
                                 <div class="info-card displayed" style="    padding-bottom: 5%;">
-                                <?php if ($sum > $average){
+                                <?php if ($sum >= $average){
                                 ?>
                                 <div class="front">
                                     <img class="card-image" src="images/won.png"">

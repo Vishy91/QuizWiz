@@ -57,6 +57,8 @@ include("../includes/templates/headeradmin.php");
 <div class="body-wrapper" style="color: black !important;">
     <div class="page-wrapper mdc-toolbar-fixed-adjust" style="padding-top: 2%; padding-right: 2%">
         <main class="content-wrapper" style="padding: 15px 15px 15px 15px !important;">
+        <?php echo message(); ?>
+                        <?php echo form_errors($errors); ?>
             <div class="mdc-card" style="height: 150%; color: #7306d1 !important; font-weight: bold; padding: 2% 2% 2% 2% !important; ">
                 <div class="mdc-layout-grid__inner" >
                     <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3">

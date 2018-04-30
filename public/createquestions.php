@@ -77,7 +77,7 @@ else{
                 <h1 style="color:black ;font-weight: 500; text-align: left">CREATE: </h1>
                 <div class="row">
 
-                    <p>Create questions and 4 options each question  for the quiz <?php echo $_SESSION['$quiz_id']; echo $resultq; ?></p>
+                    <p>Create questions and 4 options each question  for the quiz </p>
             <button type="button" class="btn btn-secondary btn-lg btn-block b1" data-toggle="modal" data-target="#exampleModal1" data-whatever="@fat">Create answer options</button>
                 </div>
             </div>

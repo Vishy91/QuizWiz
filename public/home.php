@@ -40,7 +40,8 @@ include("../includes/templates/header.php");
         <main class="content-wrapper" style="padding: 15px 15px 15px 15px !important;">
 <!--            <div class="mdc-layout-grid">-->
 <!--                <div class="mdc-layout-grid__inner">-->
-<!--                    <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cellspan-12" style="height: 150%;"-->
+<!--                    <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cellspan-12" style="height: 150%;"--><?php echo message(); ?>
+                        <?php echo form_errors($errors); ?>
                         <div class="mdc-card" style="height: 150%; color: #7306d1 !important; font-weight: bold; padding: 2% 2% 2% 2% !important; ">
                             <div class="mdc-layout-grid__inner" >
                                 <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-2">
@@ -111,7 +112,7 @@ include("../includes/templates/header.php");
                                     <div class="col-sm-3 col-md-3">
                                         <!-- Card -->
                                         <article class="card card-inverse animated fadeInLeft">
-                                            <img class="img-responsive" src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/1U2EGZ07GU.jpg" alt="Deer in nature" />
+                                            <img class="img-responsive" src="images/categories.png" alt="Deer in nature" />
                                             <div class="card-img-overlay">
                                                 <p class="card-text">
                                                     <?php echo '<a style="    color: white !important; text-decoration: none !important;" href="category.php?categoryid=' .$rows["category_id"].'&catrgoryname='.$rows["category_name"].'">'.$rows["category_name"].'</a>'; ?>
@@ -134,7 +135,7 @@ include("../includes/templates/header.php");
                                         <div class="col-sm-3 col-md-3">
                                             <!-- Card -->
                                             <article class="card card-inverse animated fadeInLeft">
-                                                <img class="img-responsive" src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/1U2EGZ07GU.jpg" alt="Deer in nature" />
+                                                <img class="img-responsive" src="images/quiz.png" alt="Deer in nature" />
                                                 <div class="card-img-overlay">
                                                     <p class="card-text">
                                                         <?php echo '<a style=" color: white !important; text-decoration: none !important;" >'.$rows["quiz_title"].'</a>'; ?>
@@ -177,7 +178,7 @@ include("../includes/templates/header.php");
                                         <div class="col-sm-3 col-md-6">
                                             <!-- Card -->
                                             <article class="card card-inverse animated fadeInRight">
-                                                <img class="img-responsive" src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/8SALDQRRZX.jpg" alt="White sand" />
+                                                <img class="img-responsive" src="images/categories.png" alt="White sand" />
                                                 <div class="card-img-overlay">
                                                     <p class="card-text">
                                                         <?php echo '<a style="    color: white !important; text-decoration: none !important;" href="category.php?categoryid=' .$rows["category_id"].'&catrgoryname='.$rows["category_name"].'">'.$rows["category_name"].'</a>'; ?>
